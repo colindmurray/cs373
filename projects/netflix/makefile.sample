@@ -6,7 +6,7 @@ Netflix.html: Netflix.py
 Netflix.log:
 	git log > Netflix.log
 
-RunNetflix.tmp: RunNetflix.py RunNetflix.in
+RunNetflix.tmp: RunNetflix.py
 	RunNetflix.py < RunNetflix.in > RunNetflix.tmp
 	diff RunNetflix.tmp RunNetflix.out
 
