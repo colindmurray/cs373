@@ -35,6 +35,13 @@ assert hasattr(A, "_A__v2")      # not really!
 assert A._A__v2             == 2
 assert A.__dict__["_A__v2"] == 2
 
+A.__v2 = [2, 3, 4]
+assert hasattr(A, "__v2")
+assert hasattr(A, "_A__v2")
+assert A.__v2             == [2, 3, 4]
+assert A.__dict__["__v2"] == [2, 3, 4]
+assert A.__v2 is not A._A__v2
+
 assert not hasattr(A, "__v3")   # __v3 is private
 #assert A.__v3             == 3 # AttributeError: type object 'A' has no attribute '__v3'
 #assert A.__dict__["__v3"] == 3 # KeyError: '__v3'
@@ -68,7 +75,7 @@ assert A.__dict__["__v6"] == [2, 3, 4]
 
 assert not hasattr(A, "_A__v7")
 #assert A._A__v7             == 5 # AttributeError: type object 'A' has no attribute '_A__v7'
-#assert A.__dict__["_A__v7"] == 5 # KeyError: '_A_v7'
+#assert A.__dict__["_A__v7"] == 5 # KeyError: '_A__v7'
 
 A._A__v7 = [2, 3, 4]
 assert not hasattr(A, "__v7")
@@ -81,6 +88,7 @@ assert not hasattr(A, "v0")
 #assert A.v0             == 0 # AttributeError: type object 'A' has no attribute 'v0'
 #assert A.__dict__["v0"] == 0 # KeyError: 'v0'
 
+A.v1 = [2, 3, 4]
 x = A()
 y = A()
 assert A.v1 is x.v1 is y.v1
