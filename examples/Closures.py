@@ -26,6 +26,8 @@ x.a += [4]                  # violation of interface
 assert x.get() == [2, 3, 4]
 x.a = None                  # violation of interface
 assert x.get() == None
+del x.a
+assert
 
 def A () :
     a = []

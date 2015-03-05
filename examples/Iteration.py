@@ -139,7 +139,7 @@ assert type(x) is count
 assert     hasattr(x, "__next__")
 assert     hasattr(x, "__iter__")
 assert not hasattr(x, "__getitem__")
-#assert (x[0] == 0)                  # TypeError: 'itertools.count' object is not indexable
+#assert x[0] == 0                    # TypeError: 'itertools.count' object is not indexable
 s = 0
 for v in x :
     if v == 10 :

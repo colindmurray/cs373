@@ -18,7 +18,7 @@ def f () :
     v2 = 12 # local
 
     try :
-        assert (v3 == 3)                                                            # local
+        assert v3 == 3                                                              # local
         assert False
     except UnboundLocalError as e :
         assert len(e.args) == 1
