@@ -26,7 +26,6 @@ def post_gtz (f) :
 @pre_gtz
 @post_gtz
 def cycle_length_1 (n) :
-    assert n > 0
     c = 1
     while n > 1 :
         if (n % 2) == 0 :
@@ -34,7 +33,6 @@ def cycle_length_1 (n) :
         else :
             n = (3 * n) + 1
         c += 1
-    assert c > 0
     return c
 
 class cache_2 :
@@ -48,7 +46,6 @@ class cache_2 :
 @pre_gtz
 @post_gtz
 def cycle_length_2 (n) :
-    assert n > 0
     c = 1
     while n > 1 :
         if (n % 2) == 0 :
@@ -56,7 +53,6 @@ def cycle_length_2 (n) :
         else :
             n = (3 * n) + 1
         c += 1
-    assert c > 0
     return c
 
 def test (f) :
