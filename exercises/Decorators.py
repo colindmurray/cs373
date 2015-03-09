@@ -9,7 +9,22 @@ def cache_1 (f) :
         return f(n)
     return g
 
+def pre_gtz (f) :
+    def g (n) :
+        assert n > 0
+        return f(n)
+    return g
+
+def post_gtz (f) :
+    def g (n) :
+        v = f(n)
+        assert v > 0
+        return v
+    return g
+
 @cache_1
+@pre_gtz
+@post_gtz
 def cycle_length_1 (n) :
     assert n > 0
     c = 1
@@ -30,6 +45,8 @@ class cache_2 :
         return self.f(n)
 
 @cache_2
+@pre_gtz
+@post_gtz
 def cycle_length_2 (n) :
     assert n > 0
     c = 1
