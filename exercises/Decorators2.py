@@ -4,17 +4,15 @@
 # Decorators1.py
 # --------------
 
-class cache_1 :
-    def __init__ (self, f) :
-        self.f = f
-        self.d = {}
-
-    def __call__ (self, k) :
-        if k in self.d :
-            return self.d[k]
-        v = self.f(k)
-        self.d[k] = v
+def cache_1 (f) :
+    d = {}
+    def g (n) :
+        if n in d :
+            return d[n]
+        v = f(n)
+        d[n] = v
         return v
+    return g
 
 @cache_1
 def cycle_length_1 (n) :
@@ -34,11 +32,11 @@ class cache_2 :
         self.f = f
         self.d = {}
 
-    def __call__ (self, k) :
-        if k in self.d :
-            return self.d[k]
-        v = self.f(k)
-        self.d[k] = v
+    def __call__ (self, n) :
+        if n in self.d :
+            return self.d[n]
+        v = self.f(n)
+        self.d[n] = v
         return v
 
 @cache_2
