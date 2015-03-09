@@ -7,11 +7,9 @@
 def cache_1 (f) :
     d = {}
     def g (n) :
-        if n in d :
-            return d[n]
-        v = f(n)
-        d[n] = v
-        return v
+        if n not in d :
+            d[n] = f(n)
+        return d[n]
     return g
 
 def pre_gtz (f) :
@@ -46,11 +44,9 @@ class cache_2 :
         self.d = {}
 
     def __call__ (self, n) :
-        if n in self.d :
-            return self.d[n]
-        v = self.f(n)
-        self.d[n] = v
-        return v
+        if n not in self.d :
+            self.d[n] = self.f(n)
+        return self.d[n]
 
 @cache_2
 @pre_gtz
