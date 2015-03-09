@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # --------------
-# Decorators1.py
+# Decorators2.py
 # --------------
 
 def cache_1 (f) :
