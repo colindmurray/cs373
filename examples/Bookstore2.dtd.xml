@@ -17,6 +17,15 @@ Try changes:
     Ident JU to HG
     BookRef to HG
     Add second BookRef in Remark
+
+*: zero or more
++: one  or more
+?: zero or one
+
+!ATTLIST: attribute list
+#CDATA:   character data
+#IMPLIED: optional
+#PCDATA:  parsed character data
 -->
 
 <!DOCTYPE Bookstore [

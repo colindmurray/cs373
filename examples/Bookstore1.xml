@@ -41,9 +41,6 @@ xmllint: using libxml version 20708
       </Authors>
    </Book>
    <Book ISBN="ISBN-0-13-815504-6" Price="100">
-      <Remark>
-      Buy this book bundled with "A First Course" - a great deal!
-      </Remark>
       <Title>Database Systems: The Complete Book</Title>
       <Authors>
          <Author>
@@ -59,5 +56,8 @@ xmllint: using libxml version 20708
             <Last_Name>Widom</Last_Name>
          </Author>
       </Authors>
+      <Remark>
+      Buy this book bundled with "A First Course" - a great deal!
+      </Remark>
    </Book>
 </Bookstore>

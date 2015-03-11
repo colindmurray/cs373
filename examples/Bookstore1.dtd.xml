@@ -18,6 +18,15 @@ Try changes:
     Swap order of First_Name, Last_Name
     Add empty Remark
     Add Magazine, omit closing tag
+
+*: zero or more
++: one  or more
+?: zero or one
+
+!ATTLIST: attribute list
+#CDATA:   character data
+#IMPLIED: optional
+#PCDATA:  parsed character data
 -->
 
 <!DOCTYPE Bookstore [
