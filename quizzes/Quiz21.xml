@@ -7,6 +7,18 @@ CS373: Quiz #21 (7 pts)
     (6 pts)
 -->
 
+<!DOCTYPE Bookstore [
+   <!ELEMENT Bookstore  (Book*, Author*)>
+   <!ELEMENT Book       (Title)>
+   <!ELEMENT Title      (#PCDATA)>
+   <!ELEMENT Author     (First_Name, Last_Name)>
+   <!ELEMENT First_Name (#PCDATA)>
+   <!ELEMENT Last_Name  (#PCDATA)>
+
+   <!ATTLIST Book   Author_IDREFS IDREFS #REQUIRED>
+   <!ATTLIST Author Author_ID     ID     #REQUIRED>
+]>
+
 <Bookstore>
    <Book Author_IDREFS="JU JW">
       <Title>A First Course in Database Systems</Title>
