@@ -1,0 +1,29 @@
+<!--
+CS373: Quiz #21 (7 pts)
+-->
+
+<!--
+ 1. Define a valid DTD schema for the following XML.
+    (6 pts)
+-->
+
+<Bookstore>
+   <Book Author_IDREFS="JU JW">
+      <Title>A First Course in Database Systems</Title>
+   </Book>
+   <Book Author_IDREFS="HG JU JW">
+      <Title>Database Systems: The Complete Book</Title>
+   </Book>
+   <Author Author_ID="HG">
+      <First_Name>Hector</First_Name>
+      <Last_Name>Garcia-Molina</Last_Name>
+   </Author>
+   <Author Author_ID="JU">
+      <First_Name>Jeffrey</First_Name>
+      <Last_Name>Ullman</Last_Name>
+   </Author>
+   <Author Author_ID="JW">
+      <First_Name>Jennifer</First_Name>
+      <Last_Name>Widom</Last_Name>
+   </Author>
+</Bookstore>
