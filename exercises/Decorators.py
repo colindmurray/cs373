@@ -4,10 +4,7 @@
 # Decorators.py
 # -------------
 
-def cache_1 (f) :
-    def g (n) :
-        return f(n)
-    return g
+from unittest import main, TestCase
 
 def pre_gtz (f) :
     def g (n) :
@@ -22,7 +19,6 @@ def post_gtz (f) :
         return v
     return g
 
-@cache_1
 @pre_gtz
 @post_gtz
 def cycle_length_1 (n) :
@@ -35,14 +31,6 @@ def cycle_length_1 (n) :
         c += 1
     return c
 
-class cache_2 :
-    def __init__ (self, f) :
-        self.f = f
-
-    def __call__ (self, n) :
-        return self.f(n)
-
-@cache_2
 @pre_gtz
 @post_gtz
 def cycle_length_2 (n) :
@@ -55,14 +43,21 @@ def cycle_length_2 (n) :
         c += 1
     return c
 
-def test (f) :
-    assert f( 1) == 1
-    assert f( 5) == 6
-    assert f(10) == 7
+def bind (f) :
+    class MyUnitTests (TestCase) :
+        def test_1 (self) :
+            self.assertEqual(f(1), 1)
 
-print("Decorators.py")
+        def test_2 (self) :
+            self.assertEqual(f(5), 6)
 
-test(cycle_length_1)
-test(cycle_length_2)
+        def test_3 (self) :
+            self.assertEqual(f(10), 7)
 
-print("Done.")
+    return MyUnitTests
+
+cycle_length_1_tests = bind(cycle_length_1)
+cycle_length_2_tests = bind(cycle_length_2)
+
+if __name__ == "__main__" :
+    main()
