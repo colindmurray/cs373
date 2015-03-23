@@ -22,10 +22,10 @@ def select_filter (r, up) :
 def bind (f) :
     class MyUnitTests (TestCase) :
         def setUp (self) :
-            self.r = [
-                      {"A" : 1, "B" : 4, "C" : 3},
-                      {"A" : 2, "B" : 5, "C" : 2},
-                      {"A" : 3, "B" : 6, "C" : 1}]
+            self.r = \
+                [{"A" : 1, "B" : 4, "C" : 3},
+                 {"A" : 2, "B" : 5, "C" : 2},
+                 {"A" : 3, "B" : 6, "C" : 1}]
 
         def test_1 (self) :
             self.assertEqual(
