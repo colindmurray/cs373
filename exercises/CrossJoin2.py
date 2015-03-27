@@ -9,15 +9,9 @@
 from unittest import main, TestCase
 
 def cross_join_for (r, s) :
-    x = []
     for u in r :
         for v in s :
-            y = {}
-            for w in u :
-                y[w] = u[w]
-            for w in v :
-                y[w] = v[w]
-            yield y
+            yield dict(list(u.items()) + list(v.items()))
 
 def cross_join_generator (r, s) :
     return (dict(list(u.items()) + list(v.items())) for u in r for v in s)
