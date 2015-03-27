@@ -12,10 +12,10 @@ def theta_join_for (r, s, bp) :
     for u in r :
         for v in s :
             if bp(u, v) :
-                yield dict(list(u.items()) + list(v.items()))
+                yield dict(u, **v)
 
 def theta_join_generator (r, s, bp) :
-    return (dict(list(u.items()) + list(v.items())) for u in r for v in s if bp(u, v))
+    return (dict(u, **v) for u in r for v in s if bp(u, v))
 
 def bind (f) :
     class MyUnitTests (TestCase) :
