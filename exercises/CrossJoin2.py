@@ -11,10 +11,10 @@ from unittest import main, TestCase
 def cross_join_for (r, s) :
     for u in r :
         for v in s :
-            yield dict(list(u.items()) + list(v.items()))
+            yield dict(u, **v)
 
 def cross_join_generator (r, s) :
-    return (dict(list(u.items()) + list(v.items())) for u in r for v in s)
+    return (dict(u, **v) for u in r for v in s)
 
 def bind (f) :
     class MyUnitTests (TestCase) :
