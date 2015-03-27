@@ -20,7 +20,7 @@ class MyUnitTests (TestCase) :
              {"A" : 4, "D" : 6}]
 
         self.assertEqual(
-            list(theta_join(r, s, lambda v, w : v["A"] == w["A"])),
+            list(theta_join(r, s, lambda u, v : u["A"] == v["A"])),
             [{'A': 2, 'B': 5, 'D': 7},
              {'A': 3, 'B': 6, 'D': 5},
              {'A': 3, 'B': 6, 'D': 6}])
