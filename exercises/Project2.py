@@ -8,16 +8,12 @@
 
 from unittest import main, TestCase
 
-def project_yield (r, *a) :
+def project_yield (r, *t) :
     for v in r :
-        y = {}
-        for w in a :
-            if w in v :
-                y[w] = v[w]
-        yield y
+        yield {a : v[a] for a in t if a in v}
 
-def project_generator (r, *a) :
-    return ({w : v[w] for w in a if w in v} for v in r)
+def project_generator (r, *t) :
+    return ({a : v[a] for a in t if a in v} for v in r)
 
 def bind (f) :
     class MyUnitTests (TestCase) :

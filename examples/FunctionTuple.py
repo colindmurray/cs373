@@ -6,13 +6,13 @@
 
 print("FunctionTuple.py")
 
-def f (x, y, *z) :
-    assert type(z) is tuple
-    return [x, y, z]
+def f (x, y, *t) :
+    assert type(t) is tuple
+    return [x, y, t]
 
-def g (x, y, *z) :
-    assert type(z) is tuple
-    return [x, y, set(z)]
+def g (x, y, *t) :
+    assert type(t) is tuple
+    return [x, y, set(t)]
 
 assert f(2, 3)       == [2, 3, ()]
 assert f(2, 3, 4)    == [2, 3, (4,)]
