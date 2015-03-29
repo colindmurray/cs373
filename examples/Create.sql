@@ -4,21 +4,15 @@
 
 use test;
 
-/* -----------------------------------------------------------------------
-Explain
-http://www.sitepoint.com/using-explain-to-write-better-mysql-queries/
-*/
-
 # ------------------------------------------------------------------------
-select "Drop";
+select "*** Drop ***";
 
 drop table if exists Student;
 drop table if exists Apply;
 drop table if exists College;
 
 # ------------------------------------------------------------------------
-select "";
-select "Create";
+select "*** Create ***";
 
 create table Student (
     sID    int,
@@ -38,8 +32,7 @@ create table College (
     enrollment int);
 
 # ------------------------------------------------------------------------
-select "";
-select "Show";
+select "*** Show ***";
 
 show tables;
 show columns from Student;
@@ -47,8 +40,7 @@ show columns from Apply;
 show columns from College;
 
 # ------------------------------------------------------------------------
-select "";
-select "Insert";
+select "*** Insert ***";
 
 insert into Student values (123, 'Amy',    3.9,  1000);
 insert into Student values (234, 'Bob',    3.6,  1500);
@@ -94,21 +86,14 @@ insert into College values ('MIT',      'MA', 10000);
 insert into College values ('Stanford', 'CA', 15000);
 
 # ------------------------------------------------------------------------
-select "";
-select "Select";
+select "*** Select ***";
 
-explain select * from Student;
-        select * from Student;
-
-explain select * from Apply;
-        select * from Apply;
-
-explain select * from College;
-        select * from College;
+select * from Student;
+select * from Apply;
+select * from College;
 
 # ------------------------------------------------------------------------
-select "";
-select "Drop";
+select "*** Drop ***";
 
 drop table if exists Student;
 drop table if exists Apply;
