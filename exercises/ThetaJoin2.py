@@ -24,7 +24,7 @@ def cross_join (r, s) :
 def select (r, up) :
     return (v for v in r if up(v))
 
-def theta_cross_join_select (r, s, up) :
+def theta_join_cross_join_select (r, s, up) :
     return select(cross_join(r, s), up)
 
 def bind (f) :
@@ -47,9 +47,9 @@ def bind (f) :
 
     return MyUnitTests
 
-theta_join_for_tests          = bind(theta_join_for)
-theta_join_generator_tests    = bind(theta_join_generator)
-theta_cross_join_select_tests = bind(theta_cross_join_select)
+theta_join_for_tests               = bind(theta_join_for)
+theta_join_generator_tests         = bind(theta_join_generator)
+theta_join_cross_join_select_tests = bind(theta_join_cross_join_select)
 
 if __name__ == "__main__" :
     main()
