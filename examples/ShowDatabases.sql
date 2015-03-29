@@ -1,8 +1,6 @@
-/*
---------------
-Show Databases
---------------
-*/
+# -----------------
+# ShowDatabases.sql
+# -----------------
 
 select "Show Databases";
 
