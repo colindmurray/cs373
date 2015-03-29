@@ -9,12 +9,12 @@
 from unittest import main, TestCase
 
 def select_yield (r, up) :
-    for d in r :
-        if up(d) :
-            yield d
+    for v in r :
+        if up(v) :
+            yield v
 
 def select_generator (r, up) :
-    return (d for d in r if up(d))
+    return (v for v in r if up(v))
 
 def select_filter (r, up) :
     return filter(up, r)
