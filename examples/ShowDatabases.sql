@@ -2,6 +2,8 @@
 # ShowDatabases.sql
 # -----------------
 
+# https://www.mysql.com
+
 select "Show Databases";
 
 show databases;
