@@ -1,0 +1,45 @@
+--
+CS373: Quiz #25 (7 pts)
+--
+
+--------------------------------------------------------------------------
+ 1. What is the multiplicity between Rental and Customer?
+    [RF: Ch. 1, pg. 2]
+    (2 pts)
+--
+
+many to one
+
+--------------------------------------------------------------------------
+ 2. What needs to be built, as the first step in refactoring?
+    [RF: Ch. 1, pg. 7]
+    (2 pts)
+--
+
+a set of tests
+
+--------------------------------------------------------------------------
+ 3. Suppose relation R(A, B) has the following tuples:
+
+    A   B
+    1   a
+    7   t
+    2   g
+    4   c
+    9   t
+
+    and relation S(B, C, D) has the following tuples:
+
+    B   C   D
+    c   5   6
+    a   7   8
+    t   8   9
+
+    Compute the theta-join of R and S with the condition
+    R.B = S.B and R.A < S.C.
+    Assume the resulting tuples have the schema (A, R.B, S.B, C, D).
+    (3 pts)
+
+(1, a, a, 7, 8)
+(7, t, t, 8, 9)
+(4, c, c, 5, 6)
