@@ -5,15 +5,11 @@
 use test;
 
 # ------------------------------------------------------------------------
-select "*** Drop ***";
-
 drop table if exists Student;
 drop table if exists Apply;
 drop table if exists College;
 
 # ------------------------------------------------------------------------
-select "*** Create ***";
-
 create table Student (
     sID    int,
     sName  text,
@@ -32,16 +28,12 @@ create table College (
     enrollment int);
 
 # ------------------------------------------------------------------------
-select "*** Show ***";
-
 show tables;
 show columns from Student;
 show columns from Apply;
 show columns from College;
 
 # ------------------------------------------------------------------------
-select "*** Insert ***";
-
 insert into Student values (123, 'Amy',    3.9,  1000);
 insert into Student values (234, 'Bob',    3.6,  1500);
 insert into Student values (320, 'Lori',   null, 2500);
@@ -86,15 +78,11 @@ insert into College values ('MIT',      'MA', 10000);
 insert into College values ('Stanford', 'CA', 15000);
 
 # ------------------------------------------------------------------------
-select "*** Select ***";
-
 select * from Student;
 select * from Apply;
 select * from College;
 
 # ------------------------------------------------------------------------
-select "*** Drop ***";
-
 drop table if exists Student;
 drop table if exists Apply;
 drop table if exists College;

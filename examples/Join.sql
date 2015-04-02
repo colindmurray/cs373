@@ -1,6 +1,6 @@
-# ----------
-# Select.sql
-# ----------
+# --------
+# Join.sql
+# --------
 
 use test;
 
@@ -77,37 +77,57 @@ select * from Apply;
 select * from College;
 
 # ------------------------------------------------------------------------
+# select *
+#     from Student, Apply
+#     order by Student.sID;
+
+select *
+    from Student cross join Apply
+    order by Student.sID;
+
+# ------------------------------------------------------------------------
+# select *
+#     from Student
+#     inner join Apply
+#     where Student.sID = Apply.sID;
+
+# select *
+#     from Student
+#     inner join Apply on Student.sID = Apply.sID;
+
 select *
     from Student
-    where (GPA > 3.7);
+    inner join Apply using (sID);
 
 # ------------------------------------------------------------------------
 select *
     from Student
-    where (GPA > 3.7) and (sizeHS < 1000);
+    inner join Apply using (sID)
+    where (sizeHS > 1000) and (major = 'CS') and (decision = false);
+
+select sName, GPA
+    from Student
+    inner join Apply using (sID)
+    where (sizeHS > 1000) and (major = 'CS') and (decision = false);
 
 # ------------------------------------------------------------------------
 select *
-    from Apply
-    where (cName = 'Stanford') and (major = 'CS');
-
-# ------------------------------------------------------------------------
-select sID, decision
-    from Apply;
-
-# ------------------------------------------------------------------------
-select sID, sName
     from Student
-    where (GPA > 3.7);
+        inner join Apply   using (sID)
+        inner join College using (cName)
+    where (sizeHS     > 500)   and
+          (major      = 'CS')  and
+          (decision   = true)  and
+          (enrollment > 20000);
 
-# ------------------------------------------------------------------------
-select major, decision
-    from Apply
-    order by major;
-
-select distinct major, decision
-    from Apply
-    order by major;
+select sName, GPA
+    from Student
+        inner join Apply   using (sID)
+        inner join College using (cName)
+    where (sizeHS     > 500)   and
+          (major      = 'CS')  and
+          (decision   = true)  and
+          (enrollment > 20000);
 
 # ------------------------------------------------------------------------
 drop table if exists Student;

@@ -4,8 +4,6 @@
 
 # https://www.mysql.com
 
-select "Show Databases";
-
 show databases;
 exit
 
