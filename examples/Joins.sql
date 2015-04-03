@@ -214,7 +214,7 @@ insert into S values (1, 4, 5);
 insert into S values (1, 4, 6);
 insert into S values (2, 4, 7);
 insert into S values (2, 5, 8);
-insert into S values (3, 7, 9);
+insert into S values (4, 7, 9);
 
 # ------------------------------------------------------------------------
 select * from R;
