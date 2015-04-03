@@ -202,7 +202,7 @@ drop table if exists S;
 
 # ------------------------------------------------------------------------
 create table R (A int, B int);
-create table S (A int, B int, C int);
+create table S (A int, C int, D int);
 
 # ------------------------------------------------------------------------
 insert into R values (1, 4);
@@ -227,22 +227,22 @@ select       *  from R cross join S;
 select * from R;
 select * from S;
 
-select count(*) from R inner join S on R.A = S.A and R.B = S.B;
-select       *  from R inner join S on R.A = S.A and R.B = S.B;
+select count(*) from R inner join S on R.A = S.A;
+select       *  from R inner join S on R.A = S.A;
 
 # ------------------------------------------------------------------------
 select * from R;
 select * from S;
 
-select count(*) from R left join S on R.A = S.A and R.B = S.B;
-select       *  from R left join S on R.A = S.A and R.B = S.B;
+select count(*) from R left join S on R.A = S.A;
+select       *  from R left join S on R.A = S.A;
 
 # ------------------------------------------------------------------------
 select * from R;
 select * from S;
 
-select count(*) from R right join S on R.A = S.A and R.B = S.B;
-select       *  from R right join S on R.A = S.A and R.B = S.B;
+select count(*) from R right join S on R.A = S.A;
+select       *  from R right join S on R.A = S.A;
 
 # ------------------------------------------------------------------------
 select * from R;
