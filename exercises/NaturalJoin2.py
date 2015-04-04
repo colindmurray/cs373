@@ -6,7 +6,8 @@
 
 # http://en.wikipedia.org/wiki/Relational_algebra#Natural_join_.28.E2.8B.88.29
 
-from unittest import main, TestCase
+from ThetaJoin2 import theta_join
+from unittest   import main, TestCase
 
 def match (u, v) :
     for a in u :
@@ -15,14 +16,17 @@ def match (u, v) :
                 return True
     return False
 
-def natural_join_for (r, s) :
+def natural_join_yield (r, s) :
     for u in r :
         for v in s :
             if match(u, v) :
                 yield dict(u, **v)
 
-def natural_join_generator (r, s) :
+def natural_join (r, s) :
     return (dict(u, **v) for u in r for v in s if match(u, v))
+
+def natural_join_theta_join (r, s) :
+    return theta_join(r, s, match)
 
 def bind (f) :
     class MyUnitTests (TestCase) :
@@ -44,8 +48,9 @@ def bind (f) :
 
     return MyUnitTests
 
-natural_join_for_tests       = bind(natural_join_for)
-natural_join_generator_tests = bind(natural_join_generator)
+natural_join_yield_tests      = bind(natural_join_yield)
+natural_join_tests            = bind(natural_join)
+natural_join_theta_join_tests = bind(natural_join_theta_join)
 
 if __name__ == "__main__" :
     main()

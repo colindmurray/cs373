@@ -8,12 +8,12 @@
 
 from unittest import main, TestCase
 
-def cross_join_for (r, s) :
+def cross_join_yield (r, s) :
     for u in r :
         for v in s :
             yield dict(u, **v)
 
-def cross_join_generator (r, s) :
+def cross_join (r, s) :
     return (dict(u, **v) for u in r for v in s)
 
 def bind (f) :
@@ -45,8 +45,8 @@ def bind (f) :
 
     return MyUnitTests
 
-cross_join_for_tests       = bind(cross_join_for)
-cross_join_generator_tests = bind(cross_join_generator)
+cross_join_yield_tests = bind(cross_join_yield)
+cross_join_tests       = bind(cross_join)
 
 if __name__ == "__main__" :
     main()

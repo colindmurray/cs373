@@ -8,24 +8,14 @@
 
 from unittest import main, TestCase
 
-def theta_join_for (r, s, up) :
+def theta_join_yield (r, s, bp) :
     for u in r :
         for v in s :
-            w = dict(u, **v)
-            if up(w) :
-                yield w
+            if bp(u, v) :
+                yield dict(u, **v)
 
-def theta_join_generator (r, s, up) :
-    return (dict(u, **v) for u in r for v in s if up(dict(u, **v)))
-
-def cross_join (r, s) :
-    return (dict(u, **v) for u in r for v in s)
-
-def select (r, up) :
-    return (v for v in r if up(v))
-
-def theta_join_cross_join_select (r, s, up) :
-    return select(cross_join(r, s), up)
+def theta_join (r, s, bp) :
+    return (dict(u, **v) for u in r for v in s if bp(u, v))
 
 def bind (f) :
     class MyUnitTests (TestCase) :
@@ -40,16 +30,15 @@ def bind (f) :
                  {"C" : 4, "D" : 6}]
 
             self.assertEqual(
-                list(f(r, s, lambda v : v["A"] == v["C"])),
+                list(f(r, s, lambda u, v : u["A"] == v["C"])),
                 [{'A': 2, 'B': 5, 'C': 2, 'D': 7},
                  {'A': 3, 'B': 6, 'C': 3, 'D': 5},
                  {'A': 3, 'B': 6, 'C': 3, 'D': 6}])
 
     return MyUnitTests
 
-theta_join_for_tests               = bind(theta_join_for)
-theta_join_generator_tests         = bind(theta_join_generator)
-theta_join_cross_join_select_tests = bind(theta_join_cross_join_select)
+theta_join_yield_tests = bind(theta_join_yield)
+theta_join_tests       = bind(theta_join)
 
 if __name__ == "__main__" :
     main()

@@ -12,7 +12,7 @@ def project_yield (r, *t) :
     for v in r :
         yield {a : v[a] for a in t if a in v}
 
-def project_generator (r, *t) :
+def project (r, *t) :
     return ({a : v[a] for a in t if a in v} for v in r)
 
 def bind (f) :
@@ -39,8 +39,8 @@ def bind (f) :
 
     return MyUnitTests
 
-project_yield_tests     = bind(project_yield)
-project_generator_tests = bind(project_generator)
+project_yield_tests = bind(project_yield)
+project_tests       = bind(project)
 
 if __name__ == "__main__" :
     main()

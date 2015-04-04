@@ -13,7 +13,7 @@ def select_yield (r, up) :
         if up(v) :
             yield v
 
-def select_generator (r, up) :
+def select (r, up) :
     return (v for v in r if up(v))
 
 def select_filter (r, up) :
@@ -40,9 +40,9 @@ def bind (f) :
 
     return MyUnitTests
 
-select_yield_tests     = bind(select_yield)
-select_generator_tests = bind(select_generator)
-select_filter_tests    = bind(select_filter)
+select_yield_tests  = bind(select_yield)
+select_tests        = bind(select)
+select_filter_tests = bind(select_filter)
 
 if __name__ == "__main__" :
     main()
