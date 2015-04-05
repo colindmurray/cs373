@@ -77,15 +77,9 @@ select * from Apply;
 select * from College;
 
 # ------------------------------------------------------------------------
-select "";
-select "ID, name, and GPA of students who applied in CS";
+select "*** ID, name, and GPA of students who applied in CS ***";
 
-select "this is not right, why? - duplicates";
-
-select *
-    from Student
-    inner join Apply using (sID)
-    where major = 'CS';
+select "this is not right, why?";
 
 select sID, sName, GPA
     from Student
@@ -109,16 +103,9 @@ select sID, sName, GPA
             where major = 'CS');
 
 # ------------------------------------------------------------------------
-select "";
-select "GPA of students who applied in CS";
+select "*** GPA of students who applied in CS ***";
 
-select "this is not right, why? - duplicates";
-
-select *
-    from Student
-    inner join Apply using (sID)
-    where major = 'CS'
-    order by GPA desc;
+select "this is not right, why?";
 
 select GPA
     from Student
@@ -126,7 +113,7 @@ select GPA
     where major = 'CS'
     order by GPA desc;
 
-select "this is not right either, why? - removed some wrong duplicates";
+select "this is still not right, why?";
 
 select distinct GPA
     from Student
@@ -145,29 +132,9 @@ select GPA
     order by GPA desc;
 
 # ------------------------------------------------------------------------
-select "";
-select "ID of students who have applied to major in CS but not in EE";
+select "*** ID of students who have applied in CS but not in EE ***";
 
-select "this is not right, why? - includes students majoring in CS, regardless of other majors";
-
-select *
-    from Apply as R
-    inner join Apply as S using (sID)
-    where R.major  = 'CS'  and
-          S.major != 'EE'
-    order by R.sID, R.cName;
-
-select distinct R.sID
-    from Apply as R
-    inner join Apply as S using (sID)
-    where R.major  = 'CS'  and
-          S.major != 'EE';
-
-select distinct sID
-    from Apply
-    where major = 'CS';
-
-select "this is right, using subquery, with in and not in";
+select "using subquery, with in and not in";
 
 select sID
     from Student
@@ -177,17 +144,9 @@ select sID
         sID not in (select sID from Apply where major = 'EE');
 
 # ------------------------------------------------------------------------
-select "";
-select "colleges, such that there's another college in the same state";
+select "*** colleges with another college in the same state ***";
 
-select R.cName, R.state
-    from College as R
-    inner join College as S
-    where (R.cName != S.cName) and
-          (R.state =  S.state)
-    order by R.cName;
-
-select "using as, using subquery, with exists";
+select "using subquery, with exists";
 
 select cName, state
     from College as R
@@ -198,8 +157,7 @@ select cName, state
                   (R.state =  S.state));
 
 # ------------------------------------------------------------------------
-select "";
-select "colleges with highest enrollment";
+select "*** colleges with highest enrollment ***";
 
 select "using subquery, with not exists";
 
@@ -219,18 +177,16 @@ select cName, enrollment
             from College);
 
 # ------------------------------------------------------------------------
-select "";
-select "students with highest GPA";
+select "*** students with highest GPA ***";
 
-select "using subquery, with not exists, is insufficient, why? - because of nulls";
+select "this is not right, why?";
 
 select sID, sName, GPA
     from Student as R
     where not exists
         (select *
             from Student as S
-            where R.GPA < S.GPA)
-    order by sID;
+            where R.GPA < S.GPA);
 
 select "this is right";
 
@@ -242,8 +198,7 @@ select sID, sName, GPA
                 from Student as S
                 where R.GPA < S.GPA)
         and
-        (GPA is not null)
-    order by sID;
+        (GPA is not null);
 
 select "this is also right, using subquery, with all";
 
@@ -252,13 +207,9 @@ select sID, sName, GPA
     where GPA >= all
         (select GPA
             from Student
-            where GPA is not null)
-    order by sID;
+            where GPA is not null);
 
 # ------------------------------------------------------------------------
-select "";
-select "Drop";
-
 drop table if exists Student;
 drop table if exists Apply;
 drop table if exists College;
