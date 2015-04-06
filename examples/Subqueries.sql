@@ -143,6 +143,15 @@ select sID
         and
         sID not in (select sID from Apply where major = 'EE');
 
+select "using subquery, with in";
+
+select distinct sID
+    from Apply
+    where
+        (major = 'CS')
+        and
+        sID not in (select sID from Apply where major = 'EE');
+
 # ------------------------------------------------------------------------
 select "*** colleges with another college in the same state ***";
 
