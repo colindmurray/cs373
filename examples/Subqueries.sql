@@ -126,7 +126,7 @@ select "this is right, using subquery, with in";
 select GPA
     from Student
     where sID in
-        (select sID
+        (select distinct sID
             from Apply
             where major = 'CS')
     order by GPA desc;
@@ -164,6 +164,12 @@ select cName, state
             from College as S
             where (R.cName != S.cName) and
                   (R.state =  S.state));
+
+select distinct R.cName, R.state
+    from College as R
+    inner join College as S
+    where (R.cName != S.cName) and
+          (R.state  = S.state);
 
 # ------------------------------------------------------------------------
 select "*** colleges with highest enrollment ***";
