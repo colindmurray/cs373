@@ -10,7 +10,7 @@ create table College (cName text, state char(2), enrollment int);
  1. Explain the difference between the following two queries.
     (6 pts)
 
-students who applied in CS and any non-EE major (but maybe EE, too)
+students who applied in CS
 students who applied in CS and not EE
 */
 
