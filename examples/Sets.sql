@@ -1,6 +1,6 @@
-# --------------
-# Subqueries.sql
-# --------------
+# --------
+# Sets.sql
+# --------
 
 use test;
 
@@ -77,173 +77,79 @@ select * from Apply;
 select * from College;
 
 # ------------------------------------------------------------------------
-select "*** ID, name, and GPA of students who applied in CS ***";
+select "*** set union: names of students OR colleges ***";
 
-select "this is not right, why?";
+select "this is not good, the attribute name is misleading";
 
-select sID, sName, GPA
-    from Student
-    inner join Apply using (sID)
-    where major = 'CS';
+select sName from Student
+union
+select cName from College
+order by sName;
 
-select "this is right";
+select "this is better";
 
-select distinct sID, sName, GPA
-    from Student
-    inner join Apply using (sID)
-    where major = 'CS';
-
-select "this is also right, using subquery, with in";
-
-select sID, sName, GPA
-    from Student
-    where sID in
-        (select sID
-            from Apply
-            where major = 'CS');
+select sName as csName from Student
+union
+select cName as csName from College
+order by csName;
 
 # ------------------------------------------------------------------------
-select "*** GPA of students who applied in CS ***";
-
-select "this is not right, why?";
-
-select GPA
-    from Student
-    inner join Apply using (sID)
-    where major = 'CS'
-    order by GPA desc;
-
-select "this is still not right, why?";
-
-select distinct GPA
-    from Student
-    inner join Apply using (sID)
-    where major = 'CS'
-    order by GPA desc;
-
-select "this is right, using subquery, with in";
-
-select GPA
-    from Student
-    where sID in
-        (select sID
-            from Apply
-            where major = 'CS')
-    order by GPA desc;
-
-# ------------------------------------------------------------------------
-select "*** ID of students who have applied in CS but not in EE ***";
-
-select "this is not right, why?";
-
-select sID
-    from Student
-    where
-        sID in (select sID from Apply where major  = 'CS')
-        and
-        sID in (select sID from Apply where major != 'EE');
-
-select "this is right, using subquery, with in and not in";
-
-select sID
-    from Student
-    where
-        sID     in (select sID from Apply where major = 'CS')
-        and
-        sID not in (select sID from Apply where major = 'EE');
-
-select "this is also right, using subquery, with in";
-
-select distinct sID
-    from Apply
-    where
-        (major = 'CS')
-        and
-        sID not in (select sID from Apply where major = 'EE');
-
-# ------------------------------------------------------------------------
-select "*** colleges with another college in the same state ***";
+select "*** set intersection: names of students AND colleges ***";
+select "MySQL does not support intersect";
 
 select "using inner join";
 
-select distinct R.cName, R.state
-    from College as R
-    inner join College as S
-    where (R.cName != S.cName) and
-          (R.state  = S.state);
+select *
+    from
+        (select sName from Student) as R
+        inner join
+        (select cName from College) as S
+        on (R.sName = S.cName);
 
-select "using subquery, with exists";
+select *
+    from
+        (select sName as csName from Student) as R
+        inner join
+        (select cName as csName from College) as S
+        using (csName);
 
-select cName, state
-    from College as R
-    where exists
-        (select *
-            from College as S
-            where (R.cName != S.cName) and
-                  (R.state =  S.state));
+select "using a subquery, with in";
 
-select "using subquery, with group by and having";
-
-select cName, state
-    from College
-    natural join
-        (select State
-            from College
-            group by State
-            having count(State) > 1) as T;
-
-# ------------------------------------------------------------------------
-select "*** colleges with highest enrollment ***";
-
-select "using subquery, with not exists";
-
-select cName, enrollment
-    from College as R
-    where not exists
-        (select *
-            from College as S
-            where R.enrollment < S.enrollment);
-
-select "using subquery, with all";
-
-select cName, enrollment
-    from College
-    where enrollment >= all
-        (select enrollment
+select sName as csName
+    from Student
+    where sName in
+        (select cName
             from College);
 
+select "using a subquery, with exists";
+
+select sName as csName
+    from Student
+    where exists
+        (select *
+            from College
+            where sName = cName);
+
 # ------------------------------------------------------------------------
-select "*** students with highest GPA ***";
+select "*** set difference: ID of students who did not apply anywhere ***";
+select "MySQL does not support except (minus)";
 
-select "this is not right, why?";
+select "using a subquery, with not in";
 
-select sID, sName, GPA
-    from Student as R
+select sID
+    from Student
+    where sID not in
+        (select sID
+            from Apply);
+
+select "using a subquery, with not exists";
+
+select sID
+    from Student
     where not exists
         (select *
-            from Student as S
-            where R.GPA < S.GPA);
-
-select "this is right";
-
-select sID, sName, GPA
-    from Student as R
-    where
-        not exists
-            (select *
-                from Student as S
-                where R.GPA < S.GPA)
-        and
-        (GPA is not null);
-
-select "this is also right, using subquery, with all";
-
-select sID, sName, GPA
-    from Student
-    where GPA >= all
-        (select GPA
-            from Student
-            where GPA is not null);
+            from Apply
+            where Student.sID = Apply.sID);
 
 # ------------------------------------------------------------------------
 drop table if exists Student;
