@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-# ------------
-# Factorial.py
-# ------------
+# -------------
+# Factorial2.py
+# -------------
 
 # https://docs.python.org/3.4/library/math.html
 
@@ -11,6 +11,7 @@ from math      import factorial
 from operator  import mul
 from sys       import version
 from timeit    import timeit
+from unittest  import main, TestCase
 
 # recursive procedure
 # linear recursive process
@@ -53,56 +54,73 @@ def factorial_range_reduce (n) :
     assert n >= 0
     return reduce(mul, range(1, n + 1), 1)
 
-def test (f) :
-    print(f.__name__)
-    assert f(0) ==   1
-    assert f(1) ==   1
-    assert f(2) ==   2
-    assert f(3) ==   6
-    assert f(4) ==  24
-    assert f(5) == 120
-    t = timeit(f.__name__ + "(100)", "from __main__ import " + f.__name__, number = 1000)
-    print("{:.2f} milliseconds".format(t * 1000))
-    print()
+def bind (f) :
+    class MyUnitTests (TestCase) :
+        def test_0 (self) :
+            self.assertEqual(f(0), 1)
 
-print("Factorial.py")
-print()
+        def test_1 (self) :
+            self.assertEqual(f(1), 1)
 
-print(version)
-print()
+        def test_2 (self) :
+            self.assertEqual(f(2), 2)
 
-test(factorial_recursion)
-test(factorial_tail_recursion)
-test(factorial_while)
-test(factorial_range_for)
-test(factorial_range_reduce)
-test(factorial)
+        def test_3 (self) :
+            self.assertEqual(f(3), 6)
 
-print("Done.")
+        def test_4 (self) :
+            self.assertEqual(f(4), 24)
+
+        def test_5 (self) :
+            self.assertEqual(f(5), 120)
+
+        def test_6 (self) :
+            print()
+            print(f.__name__)
+            t = timeit(f.__name__ + "(100)", "from __main__ import " + f.__name__, number = 1000)
+            print("{:.2f} milliseconds".format(t * 1000))
+            print()
+
+    return MyUnitTests
+
+factorial_recursion_tests      = bind(factorial_recursion)
+factorial_tail_recursion_tests = bind(factorial_tail_recursion)
+factorial_while_tests          = bind(factorial_while)
+factorial_range_for_tests      = bind(factorial_range_for)
+factorial_range_reduce_tests   = bind(factorial_range_reduce)
+factorial_tests                = bind(factorial)
+
+if __name__ == "__main__" :
+    main()
 
 """
-Factorial.py
-
-3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)
-[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
-
-factorial_recursion
-19.50 milliseconds
-
-factorial_tail_recursion
-25.03 milliseconds
-
-factorial_while
-12.65 milliseconds
-
+......
 factorial_range_for
-7.63 milliseconds
+5.40 milliseconds
 
+.......
 factorial_range_reduce
-7.67 milliseconds
+6.01 milliseconds
 
+.......
+factorial_recursion
+15.56 milliseconds
+
+.......
+factorial_tail_recursion
+21.09 milliseconds
+
+.......
 factorial
-1.12 milliseconds
+0.74 milliseconds
 
-Done.
+.......
+factorial_while
+8.92 milliseconds
+
+.
+----------------------------------------------------------------------
+Ran 42 tests in 0.063s
+
+OK
 """
