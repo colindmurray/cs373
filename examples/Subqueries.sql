@@ -98,7 +98,7 @@ select "this is also right, using subquery, with in";
 select sID, sName, GPA
     from Student
     where sID in
-        (select distinct sID
+        (select sID
             from Apply
             where major = 'CS');
 
@@ -126,7 +126,7 @@ select "this is right, using subquery, with in";
 select GPA
     from Student
     where sID in
-        (select distinct sID
+        (select sID
             from Apply
             where major = 'CS')
     order by GPA desc;
