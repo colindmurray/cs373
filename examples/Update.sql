@@ -158,10 +158,8 @@ select "*** applications of students with the highest GPA ***";
 select "*** who applied to CS ***";
 
 select count(*)
-    from Student
-    inner join Apply using (sID)
-    where major = 'CS'
-    order by GPA desc;
+    from Apply
+    where major = 'CS';
 
 select *
     from Student

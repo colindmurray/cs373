@@ -173,7 +173,7 @@ select count(*)
             from Apply
             where major = 'CS');
 
-select *
+select cName
     from College
     where cName not in
         (select cName

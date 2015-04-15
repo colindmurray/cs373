@@ -124,12 +124,16 @@ select count(*)
             from Apply
             where (major = 'EE') and (decision = false));
 
-select *
+select sID
     from Student
     where sID in
         (select sID
             from Apply
             where (major = 'EE') and (decision = false));
+
+select distinct sID
+    from Apply
+    where (major = 'EE') and (decision = false);
 
 # ------------------------------------------------------------------------
 select "*** have those students apply to Carnegie Mellon in EE ***";
@@ -149,6 +153,13 @@ insert into Apply
             (select sID
                 from Apply
                 where (major = 'EE') and (decision = false));
+
+insert into Apply
+    select sID, 'Carnegie Mellon', 'EE', true
+        from
+            (select distinct sID
+                from Apply
+                where (major = 'EE') and (decision = false)) as T;
 
 select count(*)
     from Apply;
