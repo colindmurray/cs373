@@ -9,7 +9,6 @@
 from functools import reduce
 from math      import factorial
 from operator  import mul
-from sys       import version
 from timeit    import timeit
 from unittest  import main, TestCase
 
@@ -96,31 +95,31 @@ if __name__ == "__main__" :
 """
 ......
 factorial_range_for
-5.40 milliseconds
+7.99 milliseconds
 
 .......
 factorial_range_reduce
-6.01 milliseconds
+7.62 milliseconds
 
 .......
 factorial_recursion
-15.56 milliseconds
+19.46 milliseconds
 
 .......
 factorial_tail_recursion
-21.09 milliseconds
+25.24 milliseconds
 
 .......
 factorial
-0.74 milliseconds
+0.88 milliseconds
 
 .......
 factorial_while
-8.92 milliseconds
+12.64 milliseconds
 
 .
 ----------------------------------------------------------------------
-Ran 42 tests in 0.063s
+Ran 42 tests in 0.079s
 
 OK
 """
