@@ -9,7 +9,6 @@ install:
 
 script:
     - cd javascript
-    - sudo nmp install assert
     - make test
     - cd -
     - cd python
