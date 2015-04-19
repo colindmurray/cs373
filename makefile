@@ -14,6 +14,8 @@ init:
 pull:
 	@rsync -r -t -u -v --delete             \
 	--include "Hello.js"                    \
+	--include "Assertions.js"               \
+	--include "Exceptions.js"               \
 	--exclude "*"                           \
 	../../examples/javascript/ javascript
 	@rsync -r -t -u -v --delete             \
