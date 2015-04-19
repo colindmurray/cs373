@@ -10,5 +10,6 @@ install:
 script:
     - cd javascript
     - make test
+    - cd -
     - cd python
     - make test
