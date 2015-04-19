@@ -16,6 +16,7 @@ pull:
 	--include "Hello.js"                    \
 	--include "Assertions.js"               \
 	--include "Exceptions.js"               \
+	--include "Arrays.js"                   \
 	--exclude "*"                           \
 	../../examples/javascript/ javascript
 	@rsync -r -t -u -v --delete             \

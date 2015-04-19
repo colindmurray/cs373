@@ -5,7 +5,9 @@ python:
 
 install:
     - sudo apt-get install nodejs
+    - sudo apt-get install npm
     - sudo apt-get install python-numpy
+    - sudo npm     install lodash
 
 script:
     - cd javascript
