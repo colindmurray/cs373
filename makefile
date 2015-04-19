@@ -13,6 +13,10 @@ init:
 
 pull:
 	@rsync -r -t -u -v --delete             \
+	--include "Hello.js"                    \
+	--exclude "*"                           \
+	../../examples/javascript/ javascript
+	@rsync -r -t -u -v --delete             \
 	--include "Hello.py"                    \
 	--include "Assertions.py"               \
 	--include "UnitTests1.py"               \
@@ -202,6 +206,7 @@ push:
 	cd python; make clean
 	git add .travis.yml
 	git add java
+	git add javascript
 	git add json
 	git add makefile
 	git add projects
