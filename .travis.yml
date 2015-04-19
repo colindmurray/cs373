@@ -3,6 +3,9 @@ language: python
 python:
     - "3.4"
 
+before_install:
+    - sudo apt-get update
+
 install:
     - sudo apt-get install nodejs
     - sudo apt-get install npm
