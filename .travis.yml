@@ -4,8 +4,11 @@ python:
     - "3.4"
 
 install:
+    - sudo apt-get install nodejs
     - sudo apt-get install python-numpy
 
 script:
+    - cd javascript
+    - make test
     - cd python
     - make test
