@@ -1,6 +1,6 @@
 all:
 
 test:
-	node Hello.js
-	node Exceptions.js
-	node Arrays.js
+	mocha Hello.js
+	mocha Exceptions.js
+	mocha Arrays.js
