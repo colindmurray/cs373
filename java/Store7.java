@@ -1,16 +1,9 @@
 // -----------
-// Store6.java
+// Store7.java
 // -----------
 
 /*
-Replace Type Code with State/Strategy (227)
-Move Method(142)
-Replace Conditional with Polymorphism (225)
-Create Price
-Create RegularPrice
-Create NewReleasePrice
-Create ChildrensPrice
-Rename Move.setPriceCode() to Movie.setPrice()
+Use Singleton for the Price classes.
 */
 
 import java.util.Enumeration;
@@ -24,6 +17,8 @@ abstract class Price {
         return 1;}}
 
 class RegularPrice extends Price {
+    public static final RegularPrice only = new RegularPrice();
+
     public double getCharge (int daysRented) { // const
         double result = 2;
         if (daysRented > 2)
@@ -34,6 +29,8 @@ class RegularPrice extends Price {
         return Movie.REGULAR;}}
 
 class NewReleasePrice extends Price {
+    public static final NewReleasePrice only = new NewReleasePrice();
+
     public double getCharge (int daysRented) { // const
         return daysRented * 3;}
 
@@ -44,6 +41,8 @@ class NewReleasePrice extends Price {
         return Movie.NEW_RELEASE;}}
 
 class ChildrensPrice extends Price {
+    public static final ChildrensPrice only = new ChildrensPrice();
+
     public double getCharge (int daysRented) { // const
         double result = 1.5;
         if (daysRented > 3)
@@ -92,13 +91,13 @@ class Movie {
     public void setPrice (int priceCode) {
         switch (priceCode) {                                                   // used once, still have a switch!
             case Movie.REGULAR:
-                _price = new RegularPrice();
+                _price = RegularPrice.only;
                 break;
             case Movie.NEW_RELEASE:
-                _price = new NewReleasePrice();
+                _price = NewReleasePrice.only;
                 break;
             case Movie.CHILDRENS:
-                _price = new ChildrensPrice();
+                _price = ChildrensPrice.only;
                 break;
             default:
                 throw new IllegalArgumentException("Incorrect Price Code");}}}
@@ -191,9 +190,9 @@ class Customer {
             " frequent renter points";
         return result;}}
 
-final class Store6 {
+final class Store7 {
     public static void main (String[] args) {
-        System.out.println("Store6.java");
+        System.out.println("Store7.java");
 
         Customer x = new Customer("Penelope");
         assert x.statement().equals(
