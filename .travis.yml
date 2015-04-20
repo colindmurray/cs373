@@ -11,7 +11,7 @@ install:
     - node -v
     - sudo apt-get install nodejs
     - node -v
-    - npm install npm
+    - npm install npm -g
     - npm install lodash
 
 script:
