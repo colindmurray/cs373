@@ -121,6 +121,10 @@ pull:
 	--exclude "*"                           \
 	../../examples/java/ java
 	@rsync -r -t -u -v --delete             \
+	--include "SingletonPattern.java"       \
+	--exclude "*"                           \
+	../../exercises/java/ java
+	@rsync -r -t -u -v --delete             \
 	--include "*.py"                        \
 	--include "*.sql"                       \
 	--include "*.txt"                       \

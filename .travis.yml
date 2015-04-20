@@ -8,7 +8,7 @@ before_install:
 
 install:
     - sudo apt-get install python-numpy
-    - sudo npm     install
+    - npm install
 
 script:
     - cd javascript
