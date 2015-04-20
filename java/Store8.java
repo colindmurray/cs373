@@ -1,15 +1,9 @@
 // -----------
-// Store6.java
+// Store8.java
 // -----------
 
 /*
-Replace Type Code with State/Strategy (227)
-Move Method(142)
-Replace Conditional with Polymorphism (225)
-Create Price
-Create RegularPrice
-Create NewReleasePrice
-Create ChildrensPrice
+Use reflection.
 */
 
 import java.util.Enumeration;
@@ -17,7 +11,7 @@ import java.util.Vector;
 
 abstract class Price {
     abstract double getCharge    (int daysRented);
-    abstract int    getPriceCode ();               // not used
+    abstract String getPriceCode ();               // not used
 
     public int getFrequentRenterPoints (int daysRented) { // const
         return 1;}}
@@ -29,7 +23,7 @@ class RegularPrice extends Price {
             result += (daysRented - 2) * 1.5;
         return result;}
 
-    public int getPriceCode () { // const, not used
+    public String getPriceCode () { // const, not used
         return Movie.REGULAR;}}
 
 class NewReleasePrice extends Price {
@@ -39,7 +33,7 @@ class NewReleasePrice extends Price {
     public int getFrequentRenterPoints (int daysRented) { // const
         return (daysRented > 1) ? 2 : 1;}
 
-    public int getPriceCode () { // const, not used
+    public String getPriceCode () { // const, not used
         return Movie.NEW_RELEASE;}}
 
 class ChildrensPrice extends Price {
@@ -49,18 +43,18 @@ class ChildrensPrice extends Price {
             result += (daysRented - 3) * 1.5;
         return result;}
 
-    public int getPriceCode () { // const, not used
+    public String getPriceCode () { // const, not used
         return Movie.CHILDRENS;}}
 
 class Movie {
-    public static final int REGULAR     = 0;
-    public static final int NEW_RELEASE = 1;
-    public static final int CHILDRENS   = 2;
+    public static final String REGULAR     = "RegularPrice";
+    public static final String NEW_RELEASE = "NewReleasePrice";
+    public static final String CHILDRENS   = "ChildrensPrice";
 
     private String _title;
     private Price  _price;
 
-    public Movie (String title, int priceCode) {
+    public Movie (String title, String priceCode) {
         _title = title;
         setPriceCode(priceCode);}
 
@@ -82,25 +76,23 @@ class Movie {
      * _price
      *     getPriceCode()
      */
-    public int getPriceCode () { // const
+    public String getPriceCode () { // const
         return _price.getPriceCode();}
 
     public String getTitle () { // const
         return _title;}
 
-    public void setPriceCode (int priceCode) {
-        switch (priceCode) {                                                   // used once, still have a switch!
-            case Movie.REGULAR:
-                _price = new RegularPrice();
-                break;
-            case Movie.NEW_RELEASE:
-                _price = new NewReleasePrice();
-                break;
-            case Movie.CHILDRENS:
-                _price = new ChildrensPrice();
-                break;
-            default:
-                throw new IllegalArgumentException("Incorrect Price Code");}}}
+    public void setPriceCode (String priceCode) {
+        try {
+            _price = (Price) Class.forName(priceCode).newInstance();}
+        catch (ClassCastException e) {
+            throw new IllegalArgumentException("Incorrect Price Code");}
+        catch (ClassNotFoundException e) {
+            throw new IllegalArgumentException("Incorrect Price Code");}
+        catch (IllegalAccessException e) {
+            throw new IllegalArgumentException("Incorrect Price Code");}
+        catch (InstantiationException e) {
+            throw new IllegalArgumentException("Incorrect Price Code");}}}
 
 class Rental {
     private Movie _movie;
@@ -190,9 +182,9 @@ class Customer {
             " frequent renter points";
         return result;}}
 
-final class Store6 {
+final class Store8 {
     public static void main (String[] args) {
-        System.out.println("Store6.java");
+        System.out.println("Store8.java");
 
         Customer x = new Customer("Penelope");
         assert x.statement().equals(

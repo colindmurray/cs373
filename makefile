@@ -120,8 +120,9 @@ pull:
 	--include "Store6.java"                 \
 	--include "MethodOverriding1.java"      \
 	--include "MethodOverriding2.java"      \
-	--include "Reflection.java"             \
 	--include "Store7.java"                 \
+	--include "Reflection.java"             \
+	--include "Store8.java"                 \
 	--exclude "*"                           \
 	../../examples/java/ java
 	@rsync -r -t -u -v --delete             \

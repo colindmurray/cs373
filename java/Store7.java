@@ -62,7 +62,7 @@ class Movie {
 
     public Movie (String title, int priceCode) {
         _title = title;
-        setPrice(priceCode);}
+        setPriceCode(priceCode);}
 
     /**
      * _price
@@ -88,7 +88,7 @@ class Movie {
     public String getTitle () { // const
         return _title;}
 
-    public void setPrice (int priceCode) {
+    public void setPriceCode (int priceCode) {
         switch (priceCode) {                                                   // used once, still have a switch!
             case Movie.REGULAR:
                 _price = RegularPrice.only;
