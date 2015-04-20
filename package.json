@@ -1,8 +1,0 @@
-{
-  "name": "demo-app",
-  "version": "1.0.0",
-  "dependencies": {
-    "intern": "^2.2.2",
-    "lodash": "^3.7.0"
-  }
-}

@@ -216,7 +216,6 @@ push:
 	git add javascript
 	git add json
 	git add makefile
-	git add package.json
 	git add projects
 	git add python
 	git add quizzes
