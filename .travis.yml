@@ -8,7 +8,7 @@ before_install:
 
 install:
     - sudo apt-get install python-numpy
-    - npm -v
+    - npm install npm
     - npm install lodash
 
 script:
