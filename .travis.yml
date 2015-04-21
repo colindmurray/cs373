@@ -8,7 +8,6 @@ before_install:
 
 install:
     - sudo apt-get install python-numpy
-    - sudo apt-get install nodejs
     - npm install npm
     - npm install lodash
     - npm install mocha -g
