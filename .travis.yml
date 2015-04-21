@@ -11,7 +11,7 @@ install:
     - sudo apt-get install nodejs
     - npm install npm
     - npm install lodash
-    - npm install mocha
+    - npm install mocha -g
 
 script:
     - cd javascript
