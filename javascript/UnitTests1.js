@@ -20,11 +20,14 @@ function cycle_length (n) {
     assert(c > 0);
     return c;}
 
-describe('Array', function(){
-  describe('#indexOf()', function(){
-    it('should return -1 when the value is not present', function(){
-      assert.equal(-1, [1,2,3].indexOf(5));
-      assert.equal(-1, [1,2,3].indexOf(0));
-    })
-  })
-})
+suite('Array', function(){
+  setup(function(){
+    // ...
+  });
+
+  suite('#indexOf()', function(){
+    test('should return -1 when not present', function(){
+      assert.equal(-1, [1,2,3].indexOf(4));
+    });
+  });
+});
