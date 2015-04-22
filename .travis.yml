@@ -9,8 +9,9 @@ before_install:
 install:
     - sudo apt-get install python-numpy
     - npm install npm
-    - npm install lodash
+    - npm install node  -g
     - npm install mocha -g
+    - npm install lodash
 
 script:
     - cd javascript

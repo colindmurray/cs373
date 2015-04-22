@@ -1,7 +1,7 @@
 all:
 
 test:
-	mocha -u qunit Hello.js
-	mocha -u qunit Exceptions.js
-	mocha -u qunit Arrays.js
-	mocha -u qunit UnitTests1.js
+	mocha -u tdd Hello.js
+	mocha -u tdd Exceptions.js
+	mocha -u tdd Arrays.js
+	mocha -u tdd UnitTests3.js

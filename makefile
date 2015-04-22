@@ -18,6 +18,8 @@ pull:
 	--include "Exceptions.js"               \
 	--include "Arrays.js"                   \
 	--include "UnitTests1.js"               \
+	--include "UnitTests2.js"               \
+	--include "UnitTests3.js"               \
 	--exclude "*"                           \
 	../../examples/javascript/ javascript
 	@rsync -r -t -u -v --delete             \

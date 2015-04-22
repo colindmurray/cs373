@@ -2,7 +2,7 @@
 /*jslint plusplus: true, white: true*/
 
 // -------------
-// UnitTests1.js
+// UnitTests2.js
 // -------------
 
 var assert = require('assert');
@@ -10,7 +10,7 @@ var assert = require('assert');
 function cycle_length (n) {
     "use strict";
     assert(n > 0);
-    var c = 0;
+    var c = 1;
     while (n > 1) {
         if ((n % 2) === 0) {
             n = n / 2;}
@@ -30,52 +30,31 @@ suite('cycle_length',
 
         test('test_2',
             function () {
-                assert.equal(cycle_length( 5), 6);});
+                assert.equal(cycle_length( 5), 5);});
 
         test('test_3',
             function () {
                 assert.equal(cycle_length(10), 7);});});
 
 /*
-% mocha -u tdd UnitTests1.js
+% mocha -u tdd UnitTests2.js
 
 
   cycle_length
-    1) test_1
-    2) test_2
-    3) test_3
+    ✓ test_1
+    1) test_2
+    ✓ test_3
 
-  0 passing (11ms)
-  3 failing
+  2 passing (10ms)
+  1 failing
 
-  1) cycle_length test_1:
+  1) cycle_length test_2:
 
-      AssertionError: false == true
+      AssertionError: 6 == 5
       + expected - actual
 
-      +true
-      -false
-
-      at cycle_length (UnitTests1.js:20:5)
-      at Context.<anonymous> (UnitTests1.js:27:30)
-
-  2) cycle_length test_2:
-
-      AssertionError: 5 == 6
-      + expected - actual
-
-      +6
-      -5
-
-      at Context.<anonymous> (UnitTests1.js:30:24)
-
-  3) cycle_length test_3:
-
-      AssertionError: 6 == 7
-      + expected - actual
-
-      +7
+      +5
       -6
 
-      at Context.<anonymous> (UnitTests1.js:33:24)
+      at Context.<anonymous> (UnitTests2.js:30:24)
 */
