@@ -1,20 +1,8 @@
 #!/usr/bin/env python3
 
-# ----------
-# Store10.py
-# ----------
-
-"""
-Remove Price.get_price_code()
-Remove Movie.get_price_code()
-Create Movie.get_output()
-Create Rental.get_output()
-Remove Customer.get_total_charge()
-Remove Customer.get_total_frequent_renter_points()
-Use globals()
-Rename get_charge()               to get_amount()
-Rename get_frequent_renter_points to get_points()
-"""
+# ---------
+# Store9.py
+# ---------
 
 class Price :
     def get_points (self, days_rented) : # const
