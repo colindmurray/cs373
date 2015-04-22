@@ -1,5 +1,8 @@
 all:
 
+clean:
+	rm -rf coverage
+
 test:
 	mocha -u tdd Hello.js
 	mocha -u tdd Exceptions.js
