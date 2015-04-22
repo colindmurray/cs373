@@ -1,7 +1,7 @@
-language: python
+language: node_js
 
 python:
-    - "3.4"
+    - "0.12"
 
 before_install:
     - sudo apt-get update
