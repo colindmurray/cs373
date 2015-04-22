@@ -54,6 +54,7 @@ pull:
 	--include "Methods.py"                  \
 	--include "Functions.py"                \
 	--include "RegExps.py"                  \
+	--include "Store9.py"                   \
 	--exclude "*"                           \
 	../../examples/python/ python
 	@rsync -r -t -u -v --delete             \
