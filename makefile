@@ -137,6 +137,7 @@ pull:
 	--exclude "*"                           \
 	../../exercises/java/ java
 	@rsync -r -t -u -v --delete             \
+	--include "*.java"                      \
 	--include "*.py"                        \
 	--include "*.sql"                       \
 	--include "*.txt"                       \
