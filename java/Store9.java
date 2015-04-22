@@ -126,6 +126,9 @@ class Rental {
     public int getDaysRented () { // const // no longer used
         return _daysRented;}
 
+    public Movie getMovie () { // const
+        return _movie;}
+
     /**
      * _movie
      *     getOutput()
@@ -138,10 +141,7 @@ class Rental {
      *     getPoints()
      */
     public int getPoints () { // const
-        return _movie.getPoints(_daysRented);}
-
-    public Movie getMovie () { // const
-        return _movie;}}
+        return _movie.getPoints(_daysRented);}}
 
 class Customer {
     private String         _name;
