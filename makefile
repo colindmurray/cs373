@@ -130,6 +130,7 @@ pull:
 	../../examples/java/ java
 	@rsync -r -t -u -v --delete             \
 	--include "SingletonPattern.java"       \
+	--include "SingletonPattern2.java"      \
 	--exclude "*"                           \
 	../../exercises/java/ java
 	@rsync -r -t -u -v --delete             \
