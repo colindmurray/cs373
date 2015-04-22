@@ -20,6 +20,9 @@ pull:
 	--include "UnitTests1.js"               \
 	--include "UnitTests2.js"               \
 	--include "UnitTests3.js"               \
+	--include "Coverage1.js"                \
+	--include "Coverage2.js"                \
+	--include "Coverage3.js"                \
 	--exclude "*"                           \
 	../../examples/javascript/ javascript
 	@rsync -r -t -u -v --delete             \
