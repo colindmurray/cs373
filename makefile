@@ -129,6 +129,7 @@ pull:
 	--include "Store7.java"                 \
 	--include "Reflection.java"             \
 	--include "Store8.java"                 \
+	--include "Store9.java"                 \
 	--exclude "*"                           \
 	../../examples/java/ java
 	@rsync -r -t -u -v --delete             \

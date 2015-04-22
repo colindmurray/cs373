@@ -1,115 +1,112 @@
 // -----------
-// Store7.java
+// Store9.java
 // -----------
 
 /*
-Use Singleton for the Price classes.
+Change Price to an interface
+Create AbstractPrice
+Create Movie.getOutput()
+Create Rental.getOutput()
+Remove Customer.getTotalCharge()
+Remove Customer.getTotalFrequentRenterPoints()
+Rename getCharge()               to getAmount().
+Rename getFrequentRenterPoints() to getPoints()
 */
 
 import java.util.Enumeration;
 import java.util.Vector;
 
-abstract class Price {
-    abstract double getCharge    (int daysRented);
-    abstract int    getPriceCode ();               // not used
+interface Price {
+    double getAmount    (int daysRented);
+    int    getPoints    (int daysRented);
+    String getPriceCode ();}              // not used
 
-    public int getFrequentRenterPoints (int daysRented) { // const
+abstract class AbstractPrice implements Price {
+    public int getPoints (int daysRented) { // const
         return 1;}}
 
-class RegularPrice extends Price {
-    private RegularPrice ()
-        {}
-
-    public static final RegularPrice only = new RegularPrice();
-
-    public double getCharge (int daysRented) { // const
+class RegularPrice extends AbstractPrice {
+    public double getAmount (int daysRented) { // const
         double result = 2;
         if (daysRented > 2)
             result += (daysRented - 2) * 1.5;
         return result;}
 
-    public int getPriceCode () { // const, not used
+    public String getPriceCode () { // const, not used
         return Movie.REGULAR;}}
 
-class NewReleasePrice extends Price {
-    private NewReleasePrice ()
-        {}
-
-    public static final NewReleasePrice only = new NewReleasePrice();
-
-    public double getCharge (int daysRented) { // const
+class NewReleasePrice extends AbstractPrice {
+    public double getAmount (int daysRented) { // const
         return daysRented * 3;}
 
-    public int getFrequentRenterPoints (int daysRented) { // const
+    public int getPoints (int daysRented) { // const
         return (daysRented > 1) ? 2 : 1;}
 
-    public int getPriceCode () { // const, not used
+    public String getPriceCode () { // const, not used
         return Movie.NEW_RELEASE;}}
 
-class ChildrensPrice extends Price {
-    private ChildrensPrice ()
-        {}
-
-    public static final ChildrensPrice only = new ChildrensPrice();
-
-    public double getCharge (int daysRented) { // const
+class ChildrensPrice extends AbstractPrice {
+    public double getAmount (int daysRented) { // const
         double result = 1.5;
         if (daysRented > 3)
             result += (daysRented - 3) * 1.5;
         return result;}
 
-    public int getPriceCode () { // const, not used
+    public String getPriceCode () { // const, not used
         return Movie.CHILDRENS;}}
 
 class Movie {
-    public static final int REGULAR     = 0;
-    public static final int NEW_RELEASE = 1;
-    public static final int CHILDRENS   = 2;
+    public static final String REGULAR     = "RegularPrice";
+    public static final String NEW_RELEASE = "NewReleasePrice";
+    public static final String CHILDRENS   = "ChildrensPrice";
 
     private String _title;
     private Price  _price;
 
-    public Movie (String title, int priceCode) {
+    public Movie (String title, String priceCode) {
         _title = title;
         setPriceCode(priceCode);}
 
     /**
      * _price
-     *     getCharge()
+     *     getAmount()
      */
-    public double getCharge (int daysRented) { // const
-        return _price.getCharge(daysRented);}
+    public double getAmount (int daysRented) { // const
+        return _price.getAmount(daysRented);}
+
+    public String getOutput (int daysRented) { // const
+        return
+            "\t" + _title                                +
+            "\t" + String.valueOf(getAmount(daysRented)) + "\n";}
 
     /**
      * _price
-     *     getFrequentRenterPoints()
+     *     getPoints()
      */
-    public int getFrequentRenterPoints (int daysRented) { // const
-        return _price.getFrequentRenterPoints(daysRented);}
+    public int getPoints (int daysRented) { // const
+        return _price.getPoints(daysRented);}
 
     /**
      * _price
      *     getPriceCode()
      */
-    public int getPriceCode () { // const
+    public String getPriceCode () { // const
         return _price.getPriceCode();}
 
     public String getTitle () { // const
         return _title;}
 
-    public void setPriceCode (int priceCode) {
-        switch (priceCode) {                                                   // used once, still have a switch!
-            case Movie.REGULAR:
-                _price = RegularPrice.only;
-                break;
-            case Movie.NEW_RELEASE:
-                _price = NewReleasePrice.only;
-                break;
-            case Movie.CHILDRENS:
-                _price = ChildrensPrice.only;
-                break;
-            default:
-                throw new IllegalArgumentException("Incorrect Price Code");}}}
+    public void setPriceCode (String priceCode) {
+        try {
+            _price = (Price) Class.forName(priceCode).newInstance();}
+        catch (ClassCastException e) {
+            throw new IllegalArgumentException("Incorrect Price Code");}
+        catch (ClassNotFoundException e) {
+            throw new IllegalArgumentException("Incorrect Price Code");}
+        catch (IllegalAccessException e) {
+            throw new IllegalArgumentException("Incorrect Price Code");}
+        catch (InstantiationException e) {
+            throw new IllegalArgumentException("Incorrect Price Code");}}}
 
 class Rental {
     private Movie _movie;
@@ -121,20 +118,27 @@ class Rental {
 
     /**
      * _movie
-     *     getCharge()
+     *     getAmount()
      */
-    public double getCharge () { // const
-        return _movie.getCharge(_daysRented);}
+    public double getAmount () { // const
+        return _movie.getAmount(_daysRented);}
 
     public int getDaysRented () { // const // no longer used
         return _daysRented;}
 
     /**
      * _movie
-     *     getFrequentRenterPoints()
+     *     getOutput()
      */
-    public int getFrequentRenterPoints () { // const
-        return _movie.getFrequentRenterPoints(_daysRented);}
+    public String getOutput () { // const
+        return _movie.getOutput(_daysRented);}
+
+    /**
+     * _movie
+     *     getPoints()
+     */
+    public int getPoints () { // const
+        return _movie.getPoints(_daysRented);}
 
     public Movie getMovie () { // const
         return _movie;}}
@@ -154,54 +158,51 @@ class Customer {
 
     /**
      * _rentals.elements().nextElement()
-     *     getCharge()
+     *     getAmount()
      */
     private double getTotalCharge () { // const, O(n)
         double              result  = 0;
         Enumeration<Rental> rentals = _rentals.elements();
         while (rentals.hasMoreElements()) {
             Rental each  = rentals.nextElement();
-            result      += each.getCharge();}
+            result      += each.getAmount();}
         return result;}
 
     /**
      * _rentals.elements().nextElement()
-     *     getFrequentRenterPoints()
+     *     getPoints()
      */
     private int getTotalFrequentRenterPoints () { // const, O(n)
         int                 result  = 0;
         Enumeration<Rental> rentals = _rentals.elements();
         while (rentals.hasMoreElements()) {
             Rental each  = rentals.nextElement();
-            result      += each.getFrequentRenterPoints();}
+            result      += each.getPoints();}
         return result;}
 
     /**
      * _rentals.elements().nextElement()
-     *     getCharge()
+     *     getAmount()
      *     getMovie()
      *         getTitle()
      */
     public String statement () { // O(3n)
-        String              result  = "Rental Record for " + getName() + "\n";
-        Enumeration<Rental> rentals = _rentals.elements();
-        while (rentals.hasMoreElements()) {
-            Rental each  = rentals.nextElement();
-            result      +=
-                "\t" + each.getMovie().getTitle()       +
-                "\t" + String.valueOf(each.getCharge()) + "\n";}
-        result +=
-            "Amount owed is "                +
-            String.valueOf(getTotalCharge()) + "\n";
-        result +=
-            "You earned "                                  +
-            String.valueOf(getTotalFrequentRenterPoints()) +
-            " frequent renter points";
+        double amount = 0;
+        for (Rental rental : _rentals)
+            amount += rental.getAmount();
+        int points = 0;
+        for (Rental rental : _rentals)
+            points += rental.getPoints();
+        String result = "Rental Record for " + getName() + "\n";
+        for (Rental rental : _rentals)
+            result += rental.getOutput();
+        result += "Amount owed is " + String.valueOf(amount) + "\n";
+        result += "You earned " + String.valueOf(points) + " frequent renter points";
         return result;}}
 
-final class Store7 {
+final class Store9 {
     public static void main (String[] args) {
-        System.out.println("Store7.java");
+        System.out.println("Store9.java");
 
         Customer x = new Customer("Penelope");
         assert x.statement().equals(
