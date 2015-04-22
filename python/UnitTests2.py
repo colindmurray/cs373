@@ -20,7 +20,7 @@ def cycle_length (n) :
     assert c > 0
     return c
 
-class UnitTests (TestCase) :
+class MyUnitTests (TestCase) :
     def test_1 (self) :
         self.assertEqual(cycle_length( 1), 1)
 
@@ -31,13 +31,13 @@ class UnitTests (TestCase) :
         self.assertEqual(cycle_length(10), 7)
 
 s = TestSuite()
-s.addTest(TestLoader().loadTestsFromTestCase(UnitTests))
+s.addTest(TestLoader().loadTestsFromTestCase(MyUnitTests))
 TextTestRunner().run(s)
 
 """
 .F.
 ======================================================================
-FAIL: test_2 (__main__.UnitTests)
+FAIL: test_2 (__main__.MyUnitTests)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "./UnitTests2.py", line 28, in test_2
