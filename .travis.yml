@@ -7,12 +7,9 @@ before_install:
     - sudo apt-get update
 
 install:
+    - sugo apt-get install python3.4
     - sudo apt-get install python-numpy
-    - sudo apt-get install nodejs
-    - node -v
     - npm install npm      -g
-    - npm install node     -g
-    - node -v
     - npm install mocha    -g
     - npm install istanbul -g
     - npm install lodash
