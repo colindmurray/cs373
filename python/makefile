@@ -8,7 +8,11 @@ clean:
 test:
 	./Hello.py
 	./UnitTests3.py
-	./Coverage1.py
-	./Coverage2.py
-	./Coverage3.py
+	coverage run --branch Coverage1.py
+	coverage report -m
+	coverage run --branch Coverage2.py
+	coverage report -m
+	coverage run --branch Coverage3.py
+	coverage report -m
 	./Types.py
+	./Functions.py

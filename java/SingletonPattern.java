@@ -3,7 +3,7 @@
 // ---------------------
 
 class Singleton {
-    ...
+    <your code>
 
     public String f () {
         return "Singleton.f()";}}

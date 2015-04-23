@@ -12,217 +12,220 @@ init:
 	git push -u origin master
 
 pull:
-	@rsync -r -t -u -v --delete             \
-	--include "Hello.js"                    \
-	--include "Assertions.js"               \
-	--include "Exceptions.js"               \
-	--include "Arrays.js"                   \
-	--include "UnitTests1.js"               \
-	--include "UnitTests2.js"               \
-	--include "UnitTests3.js"               \
-	--include "Coverage1.js"                \
-	--include "Coverage2.js"                \
-	--include "Coverage3.js"                \
-	--include "Types.js"                    \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "Hello.js"                     \
+	--include "Assertions.js"                \
+	--include "Exceptions.js"                \
+	--include "Arrays.js"                    \
+	--include "UnitTests1.js"                \
+	--include "UnitTests2.js"                \
+	--include "UnitTests3.js"                \
+	--include "Coverage1.js"                 \
+	--include "Coverage2.js"                 \
+	--include "Coverage3.js"                 \
+	--include "Types.js"                     \
+	--exclude "*"                            \
 	../../examples/javascript/ javascript
-	@rsync -r -t -u -v --delete             \
-	--include "Hello.py"                    \
-	--include "Assertions.py"               \
-	--include "UnitTests1.py"               \
-	--include "UnitTests2.py"               \
-	--include "UnitTests3.py"               \
-	--include "Coverage1.py"                \
-	--include "Coverage2.py"                \
-	--include "Coverage3.py"                \
-	--include "Exceptions.py"               \
-	--include "Types.py"                    \
-	--include "Operators.py"                \
-	--include "Generators.py"               \
-    --include "Iteration.py"                \
-	--include "Iterables.py"                \
-	--include "Variables.py"                \
-	--include "Cache.py"                    \
-	--include "FunctionKeywords.py"         \
-	--include "FunctionDefaults.py"         \
-	--include "FunctionUnpacking.py"        \
-	--include "FunctionTuple.py"            \
-	--include "FunctionDict.py"             \
-	--include "GlobalVariables.py"          \
-	--include "ClassVariables.py"           \
-	--include "InstanceVariables.py"        \
-	--include "Closures.py"                 \
-	--include "Methods.py"                  \
-	--include "Functions.py"                \
-	--include "RegExps.py"                  \
-	--include "Store9.py"                   \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "Hello.py"                     \
+	--include "Assertions.py"                \
+	--include "UnitTests1.py"                \
+	--include "UnitTests2.py"                \
+	--include "UnitTests3.py"                \
+	--include "Coverage1.py"                 \
+	--include "Coverage2.py"                 \
+	--include "Coverage3.py"                 \
+	--include "Exceptions.py"                \
+	--include "Types.py"                     \
+	--include "Operators.py"                 \
+	--include "Generators.py"                \
+    --include "Iteration.py"                 \
+	--include "Iterables.py"                 \
+	--include "Variables.py"                 \
+	--include "Cache.py"                     \
+	--include "FunctionKeywords.py"          \
+	--include "FunctionDefaults.py"          \
+	--include "FunctionUnpacking.py"         \
+	--include "FunctionTuple.py"             \
+	--include "FunctionDict.py"              \
+	--include "GlobalVariables.py"           \
+	--include "ClassVariables.py"            \
+	--include "InstanceVariables.py"         \
+	--include "Closures.py"                  \
+	--include "Methods.py"                   \
+	--include "Functions.py"                 \
+	--include "RegExps.py"                   \
+	--include "Store9.py"                    \
+	--exclude "*"                            \
 	../../examples/python/ python
-	@rsync -r -t -u -v --delete             \
-	--include "IsPrimeT.py"                 \
-	--include "IsPrimeT2.py"                \
-	--include "Factorial.py"                \
-	--include "Factorial2.py"               \
-	--include "RMSE.py"                     \
-	--include "RMSE2.py"                    \
-	--include "Reduce.py"                   \
-	--include "Reduce2.py"                  \
-	--include "Map.py"                      \
-	--include "Map2.py"                     \
-	--include "Collatz2.py"                 \
-	--include "Collatz3.py"                 \
-	--include "Decorators.py"               \
-	--include "Decorators2.py"              \
-	--include "Select.py"                   \
-	--include "Select2.py"                  \
-	--include "Project.py"                  \
-	--include "Project2.py"                 \
-	--include "CrossJoin.py"                \
-	--include "CrossJoin2.py"               \
-	--include "ThetaJoin.py"                \
-	--include "ThetaJoin2.py"               \
-	--include "NaturalJoin.py"              \
-	--include "NaturalJoin2.py"             \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "IsPrimeT.py"                  \
+	--include "IsPrimeT2.py"                 \
+	--include "Factorial.py"                 \
+	--include "Factorial2.py"                \
+	--include "RMSE.py"                      \
+	--include "RMSE2.py"                     \
+	--include "Reduce.py"                    \
+	--include "Reduce2.py"                   \
+	--include "Map.py"                       \
+	--include "Map2.py"                      \
+	--include "Collatz2.py"                  \
+	--include "Collatz3.py"                  \
+	--include "Decorators.py"                \
+	--include "Decorators2.py"               \
+	--include "Select.py"                    \
+	--include "Select2.py"                   \
+	--include "Project.py"                   \
+	--include "Project2.py"                  \
+	--include "CrossJoin.py"                 \
+	--include "CrossJoin2.py"                \
+	--include "ThetaJoin.py"                 \
+	--include "ThetaJoin2.py"                \
+	--include "NaturalJoin.py"               \
+	--include "NaturalJoin2.py"              \
+	--exclude "*"                            \
 	../../exercises/python/ python
-	@rsync -r -t -u -v --delete             \
-	--include "Bookstore1.xml"              \
-	--include "Bookstore1.dtd.xml"          \
-	--include "Bookstore2.dtd.xml"          \
-	--include "Bookstore3.xml"              \
-	--include "Bookstore3.xsd.xml"          \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "Bookstore1.xml"               \
+	--include "Bookstore1.dtd.xml"           \
+	--include "Bookstore2.dtd.xml"           \
+	--include "Bookstore3.xml"               \
+	--include "Bookstore3.xsd.xml"           \
+	--exclude "*"                            \
 	../../examples/xml/ xml
-	@rsync -r -t -u -v --delete             \
-	--include "Bookstore.json"              \
-	--include "BookstoreSchema.json"        \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "Bookstore.json"               \
+	--include "BookstoreSchema.json"         \
+	--exclude "*"                            \
 	../../examples/json/ json
-	@rsync -r -t -u -v --delete             \
-	--include "MySQL.txt"                   \
-	--include "ShowDatabases.sql"           \
-	--include "ShowGrants.sql"              \
-	--include "ShowCharacterSet.sql"        \
-	--include "ShowCollation.sql"           \
-	--include "ShowVariables.sql"           \
-	--include "ShowEngines.sql"             \
-	--include "Create.sql"                  \
-	--include "Select.sql"                  \
-	--include "Join.sql"                    \
-	--include "Joins.sql"                   \
-	--include "Subqueries.sql"              \
-	--include "Sets.sql"                    \
-	--include "Aggregation.sql"             \
-	--include "Insert.sql"                  \
-	--include "Delete.sql"                  \
-	--include "Update.sql"                  \
-	--include "Other.sql"                   \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "MySQL.txt"                    \
+	--include "ShowDatabases.sql"            \
+	--include "ShowGrants.sql"               \
+	--include "ShowCharacterSet.sql"         \
+	--include "ShowCollation.sql"            \
+	--include "ShowVariables.sql"            \
+	--include "ShowEngines.sql"              \
+	--include "Create.sql"                   \
+	--include "Select.sql"                   \
+	--include "Join.sql"                     \
+	--include "Joins.sql"                    \
+	--include "Subqueries.sql"               \
+	--include "Sets.sql"                     \
+	--include "Aggregation.sql"              \
+	--include "Insert.sql"                   \
+	--include "Delete.sql"                   \
+	--include "Update.sql"                   \
+	--include "Other.sql"                    \
+	--exclude "*"                            \
 	../../examples/sql/ sql
-	@rsync -r -t -u -v --delete             \
-	--include "Store1.java"                 \
-	--include "Store2.java"                 \
-	--include "Store3.java"                 \
-	--include "Store4.java"                 \
-	--include "Store5.java"                 \
-	--include "Store6.java"                 \
-	--include "MethodOverriding1.java"      \
-	--include "MethodOverriding2.java"      \
-	--include "Store7.java"                 \
-	--include "Reflection.java"             \
-	--include "Store8.java"                 \
-	--include "Store9.java"                 \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "Store1.java"                  \
+	--include "Store2.java"                  \
+	--include "Store3.java"                  \
+	--include "Store4.java"                  \
+	--include "Store5.java"                  \
+	--include "Store6.java"                  \
+	--include "MethodOverriding1.java"       \
+	--include "MethodOverriding2.java"       \
+	--include "Store7.java"                  \
+	--include "Reflection.java"              \
+	--include "Store8.java"                  \
+	--include "Store9.java"                  \
+	--exclude "*"                            \
 	../../examples/java/ java
-	@rsync -r -t -u -v --delete             \
-	--include "SingletonPattern.java"       \
-	--include "SingletonPattern2.java"      \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "SingletonPattern.java"        \
+	--include "SingletonPattern2.java"       \
+	--include "CreationalPatterns.java"      \
+	--include "FactoryMethodPattern.java"    \
+	--include "AbstractFactoryPattern.java"  \
+	--exclude "*"                            \
 	../../exercises/java/ java
-	@rsync -r -t -u -v --delete             \
-	--include "*.java"                      \
-	--include "*.py"                        \
-	--include "*.sql"                       \
-	--include "*.txt"                       \
-	--include "*.xml"                       \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "*.java"                       \
+	--include "*.py"                         \
+	--include "*.sql"                        \
+	--include "*.txt"                        \
+	--include "*.xml"                        \
+	--exclude "*"                            \
 	../quizzes/ quizzes
-	@rsync -r -t -u -v --delete             \
-	--include "collatz/"                    \
-	--include "Collatz.py"                  \
-	--include "gitignore.sample"            \
-	--include "makefile.sample"             \
-	--include "RunCollatz.py"               \
-	--include "RunCollatz.sample.in"        \
-	--include "RunCollatz.sample.out"       \
-	--include "TestCollatz.py"              \
-	--include "TestCollatz.sample.out"      \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "collatz/"                     \
+	--include "Collatz.py"                   \
+	--include "gitignore.sample"             \
+	--include "makefile.sample"              \
+	--include "RunCollatz.py"                \
+	--include "RunCollatz.sample.in"         \
+	--include "RunCollatz.sample.out"        \
+	--include "TestCollatz.py"               \
+	--include "TestCollatz.sample.out"       \
+	--exclude "*"                            \
 	../../projects/python/ projects
-	@rsync -r -t -u -v --delete             \
-	--include "netflix/"                    \
-	--include "gitignore.sample"            \
-	--include "makefile.sample"             \
-	--include "RunNetflix.sample.in"        \
-	--include "RunNetflix.sample.out"       \
-	--exclude "*"                           \
+	@rsync -r -t -u -v --delete              \
+	--include "netflix/"                     \
+	--include "gitignore.sample"             \
+	--include "makefile.sample"              \
+	--include "RunNetflix.sample.in"         \
+	--include "RunNetflix.sample.out"        \
+	--exclude "*"                            \
 	../../projects/python/ projects
 
-#	@rsync -r -t -u -v --delete             \
-#	--include "Hello.js"                    \
-#	--include "Assertions.js"               \
-#	--include "Types.js"                    \
-#	--include "Operators.js"                \
-#	--include "Variables.js"                \
-#	--exclude "*"                           \
+#	@rsync -r -t -u -v --delete              \
+#	--include "Hello.js"                     \
+#	--include "Assertions.js"                \
+#	--include "Types.js"                     \
+#	--include "Operators.js"                 \
+#	--include "Variables.js"                 \
+#	--exclude "*"                            \
 #	../../examples/javascript/ examples/
 
-#	@rsync -r -t -u -v --delete             \
-#	--include "Join.sql"                    \
-#	--include "Joins.sql"                   \
-#	--exclude "*"                           \
+#	@rsync -r -t -u -v --delete              \
+#	--include "Join.sql"                     \
+#	--include "Joins.sql"                    \
+#	--exclude "*"                            \
 #	../../examples/sql/ examples/
 
-#	@rsync -r -t -u -v --delete             \
-#	--include "Creational.java"             \
-#	--include "FactoryMethod.java"          \
-#	--include "AbstractFactory.java"        \
-#	--exclude "*"                           \
+#	@rsync -r -t -u -v --delete              \
+#	--include "Creational.java"              \
+#	--include "FactoryMethod.java"           \
+#	--include "AbstractFactory.java"         \
+#	--exclude "*"                            \
 #	../../examples/java/ examples
 
-#	--include "Equals.py"                   \
-#	--include "Copy.py"                     \
-#	--include "Complex.py"                  \
-#	--include "Inheritance.py"              \
-#	--include "Sequences.py"                \
-#	--include "Lists.py"                    \
-#	--include "Strings.py"                  \
-#	--include "Sets.py"                     \
-#	--include "Dicts.py"                    \
-#	--include "Builder.py"                  \
-#	--include "Prototype.py"                \
-#	--include "Adapter.py"                  \
-#	--include "Decorator.py"                \
-#	--include "Composite.py"                \
-#	--include "Visitor.py"                  \
+#	--include "Equals.py"                    \
+#	--include "Copy.py"                      \
+#	--include "Complex.py"                   \
+#	--include "Inheritance.py"               \
+#	--include "Sequences.py"                 \
+#	--include "Lists.py"                     \
+#	--include "Strings.py"                   \
+#	--include "Sets.py"                      \
+#	--include "Dicts.py"                     \
+#	--include "Builder.py"                   \
+#	--include "Prototype.py"                 \
+#	--include "Adapter.py"                   \
+#	--include "Decorator.py"                 \
+#	--include "Composite.py"                 \
+#	--include "Visitor.py"                   \
 
-#	--include "Sets.sql"                    \
-#	--include "Aggregation.sql"             \
-#	--include "Insert.sql"                  \
-#	--include "Delete.sql"                  \
-#	--include "Update.sql"                  \
-#	--include "Other.sql"                   \
+#	--include "Sets.sql"                     \
+#	--include "Aggregation.sql"              \
+#	--include "Insert.sql"                   \
+#	--include "Delete.sql"                   \
+#	--include "Update.sql"                   \
+#	--include "Other.sql"                    \
 
-#	--include "Builder.java"                \
-#	--include "Prototype.java"              \
-#	--include "Adapter.java"                \
-#	--include "Decorator.java"              \
-#	--include "Composite.java"              \
-#	--include "Visitor.java"                \
+#	--include "Builder.java"                 \
+#	--include "Prototype.java"               \
+#	--include "Adapter.java"                 \
+#	--include "Decorator.java"               \
+#	--include "Composite.java"               \
+#	--include "Visitor.java"                 \
 
 push:
 	cd javascript; make clean
-	cd python; make clean
+	cd python;     make clean
 	git add .travis.yml
 	git add java
 	git add javascript
