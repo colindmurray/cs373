@@ -7,7 +7,7 @@ before_install:
     - sudo apt-get update
 
 install:
-    - sudo apt-get install python3.2
+    - sudo apt-get install python3
     - sudo apt-get install python-numpy
     - npm install npm      -g
     - npm install mocha    -g
