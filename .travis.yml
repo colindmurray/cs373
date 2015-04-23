@@ -1,13 +1,12 @@
-language: node_js
+language: python
 
-node_js:
-    - "0.12"
+python:
+    - "3.4"
 
 before_install:
     - sudo apt-get update
 
 install:
-    - sudo apt-get install python3
     - sudo apt-get install python-numpy
     - npm install npm      -g
     - npm install mocha    -g
