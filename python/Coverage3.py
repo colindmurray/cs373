@@ -43,7 +43,7 @@ OK
 
 
 
-% coverage3 run --branch Coverage3.py
+% coverage run --branch Coverage3.py
 ...
 ----------------------------------------------------------------------
 Ran 3 tests in 0.000s
@@ -52,7 +52,7 @@ OK
 
 
 
-% coverage3 report -m
+% coverage report -m
 Name        Stmts   Miss Branch BrMiss  Cover   Missing
 -------------------------------------------------------
 Coverage3      19      0      4      0   100%

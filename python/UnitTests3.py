@@ -6,7 +6,7 @@
 
 # https://docs.python.org/3.2/library/unittest.html
 
-from unittest import TestCase, TestLoader, TestSuite, TextTestRunner
+from unittest import main, TestCase
 
 def cycle_length (n) :
     assert n > 0
@@ -30,9 +30,8 @@ class MyUnitTests (TestCase) :
     def test_3 (self) :
         self.assertEqual(cycle_length(10), 7)
 
-s = TestSuite()
-s.addTest(TestLoader().loadTestsFromTestCase(MyUnitTests))
-TextTestRunner().run(s)
+if __name__ == "__main__" :
+    main()
 
 """
 ...

@@ -9,10 +9,6 @@ from types import FunctionType
 
 print("Types.py")
 
-assert type(type) is type
-assert issubclass(type, type)
-assert issubclass(type, object)
-
 b = True
 b = False
 assert type(b)    is bool
@@ -71,6 +67,13 @@ assert type(dict) is type
 assert issubclass(dict, dict)
 assert issubclass(dict, object)
 
+def inc (v) :
+    return v + 1
+assert type(inc)          is FunctionType
+assert type(FunctionType) is type
+assert issubclass(FunctionType, FunctionType)
+assert issubclass(FunctionType, object)
+
 class A :
     def __init__ (self, i, f) :
         self.i = i
@@ -82,24 +85,8 @@ assert type(A) is type
 assert issubclass(A, A)
 assert issubclass(A, object)
 
-class B (A) :
-    def __init__ (self, i, f, s) :
-        A.__init__(self, i, f)
-        self.s = s
-
-y = B(2, 3.45, "abc")
-assert type(y) is B
-assert type(B) is type
-assert issubclass(B, B)
-assert issubclass(B, object)
-
-assert issubclass(B, A)
-
-def inc (v) :
-    return v + 1
-assert type(inc)          is FunctionType
-assert type(FunctionType) is type
-assert issubclass(FunctionType, FunctionType)
-assert issubclass(FunctionType, object)
+assert type(type) is type
+assert issubclass(type, type)
+assert issubclass(type, object)
 
 print("Done.")

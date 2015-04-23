@@ -28,7 +28,7 @@ if __name__ == "__main__" :
     main()
 
 """ #pragma: no cover
-% coverage3 help
+% coverage help
 Coverage.py, version 3.7.1
 Measure, collect, and report on code coverage in Python programs.
 
@@ -50,7 +50,7 @@ For more information, see http://nedbatchelder.com/code/coverage
 
 
 
-% coverage3 help run
+% coverage help run
 Usage: coverage run [options] <pyfile> [program options]
 
 Run a Python program, measuring code execution.
@@ -84,7 +84,7 @@ Options:
 
 
 
-% coverage3 help report
+% coverage help report
 Usage: coverage report [options] [modules]
 
 Report coverage statistics on modules.
@@ -115,7 +115,7 @@ OK
 
 
 
-% coverage3 run --branch Coverage1.py
+% coverage run --branch Coverage1.py
 .
 ----------------------------------------------------------------------
 Ran 1 test in 0.000s
@@ -124,7 +124,7 @@ OK
 
 
 
-% coverage3 report -m
+% coverage report -m
 Name        Stmts   Miss Branch BrMiss  Cover   Missing
 -------------------------------------------------------
 Coverage1      15      4      4      3    63%   15-19

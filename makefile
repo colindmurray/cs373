@@ -23,6 +23,7 @@ pull:
 	--include "Coverage1.js"                \
 	--include "Coverage2.js"                \
 	--include "Coverage3.js"                \
+	--include "Types.js"                    \
 	--exclude "*"                           \
 	../../examples/javascript/ javascript
 	@rsync -r -t -u -v --delete             \
