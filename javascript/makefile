@@ -6,7 +6,6 @@ clean:
 test:
 	node Hello.js
 	node Exceptions.js
-	node Arrays.js
 	mocha -u tdd UnitTests3.js
 	istanbul cover _mocha -- -u tdd Coverage1.js
 	istanbul cover _mocha -- -u tdd Coverage2.js

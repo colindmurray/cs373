@@ -11,3 +11,4 @@ test:
 	./Coverage1.py
 	./Coverage2.py
 	./Coverage3.py
+	./Types.py
