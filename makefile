@@ -221,6 +221,7 @@ pull:
 #	--include "Visitor.java"                \
 
 push:
+	cd javascript; make clean
 	cd python; make clean
 	git add .travis.yml
 	git add java
