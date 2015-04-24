@@ -13,6 +13,9 @@ install:
     - npm install istanbul -g
     - npm install lodash
     - pip -V
+    - pip install --upgrade pip
+    - pip -V
+    - pip install coverage
 
 script:
     - cd javascript
