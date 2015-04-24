@@ -144,6 +144,7 @@ pull:
 	--include "FactoryMethodPattern.java"    \
 	--include "FactoryMethodPattern2.java"   \
 	--include "AbstractFactoryPattern.java"  \
+	--include "AbstractFactoryPattern2.java" \
 	--exclude "*"                            \
 	../../exercises/java/ java
 	@rsync -r -t -u -v --delete              \
