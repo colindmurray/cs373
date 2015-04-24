@@ -139,6 +139,7 @@ pull:
 	--include "SingletonPattern2.java"       \
 	--include "CreationalPatterns.java"      \
 	--include "FactoryMethodPattern.java"    \
+	--include "FactoryMethodPattern2.java"    \
 	--include "AbstractFactoryPattern.java"  \
 	--exclude "*"                            \
 	../../exercises/java/ java
