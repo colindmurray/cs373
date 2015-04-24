@@ -18,12 +18,12 @@ install:
     - pip install coverage
 
 script:
-	- cd java
-	- make test
-	- cd -
+    - cd java
+    - make test
+    - cd -
     - cd javascript
     - make test
     - cd -
     - cd python
     - make test
-	- cd -
+    - cd -
