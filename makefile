@@ -83,6 +83,9 @@ pull:
 	--include "ThetaJoin2.py"                \
 	--include "NaturalJoin.py"               \
 	--include "NaturalJoin2.py"              \
+	--include "CreationalPatterns.py"        \
+	--include "FactoryMethodPattern.py"      \
+	--include "AbstractFactoryPattern.py"    \
 	--exclude "*"                            \
 	../../exercises/python/ python
 	@rsync -r -t -u -v --delete              \
@@ -139,7 +142,7 @@ pull:
 	--include "SingletonPattern2.java"       \
 	--include "CreationalPatterns.java"      \
 	--include "FactoryMethodPattern.java"    \
-	--include "FactoryMethodPattern2.java"    \
+	--include "FactoryMethodPattern2.java"   \
 	--include "AbstractFactoryPattern.java"  \
 	--exclude "*"                            \
 	../../exercises/java/ java
