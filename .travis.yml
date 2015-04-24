@@ -12,6 +12,7 @@ install:
     - npm install mocha    -g
     - npm install istanbul -g
     - npm install lodash
+    - pip -V
 
 script:
     - cd javascript
