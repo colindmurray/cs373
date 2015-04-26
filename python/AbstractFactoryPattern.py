@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-# ------------------
-# AbstractFactory.py
-# ------------------
+# -------------------------
+# AbstractFactoryPattern.py
+# -------------------------
 
 # http://en.wikipedia.org/wiki/Abstract_factory_pattern
 
@@ -60,7 +60,7 @@ def create_maze (mf) :
     m.add_door(mf.make_door(m.room(1), m.room(2)))
     return m
 
-print("AbstractFactory.py")
+print("AbstractFactoryPattern.py")
 
 mf = MazeFactory()
 m  = create_maze(mf)

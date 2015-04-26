@@ -6,11 +6,9 @@
 
 # https://docs.python.org/3.4/library/functools.html
 
-from operator import add, mul, sub
-from unittest import main, TestCase
-
-def reduce (bf, a, v) :
-    ...
+from functools import reduce
+from operator  import add, mul, sub
+from unittest  import main, TestCase
 
 class MyUnitTests (TestCase) :
     def test_1 (self) :

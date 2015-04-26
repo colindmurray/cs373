@@ -56,6 +56,7 @@ pull:
 	--include "Functions.py"                 \
 	--include "RegExps.py"                   \
 	--include "Store9.py"                    \
+	--include "Copy.py"                      \
 	--exclude "*"                            \
 	../../examples/python/ python
 	@rsync -r -t -u -v --delete              \
@@ -86,6 +87,7 @@ pull:
 	--include "CreationalPatterns.py"        \
 	--include "FactoryMethodPattern.py"      \
 	--include "AbstractFactoryPattern.py"    \
+	--include "PrototypePattern.py"          \
 	--exclude "*"                            \
 	../../exercises/python/ python
 	@rsync -r -t -u -v --delete              \
@@ -138,6 +140,10 @@ pull:
 	--exclude "*"                            \
 	../../examples/java/ java
 	@rsync -r -t -u -v --delete              \
+	--include "Clone.java"                   \
+	--exclude "*"                            \
+	../../examples/java/ java
+	@rsync -r -t -u -v --delete              \
 	--include "SingletonPattern.java"        \
 	--include "SingletonPattern2.java"       \
 	--include "CreationalPatterns.java"      \
@@ -145,6 +151,8 @@ pull:
 	--include "FactoryMethodPattern2.java"   \
 	--include "AbstractFactoryPattern.java"  \
 	--include "AbstractFactoryPattern2.java" \
+	--include "PrototypePattern.java"        \
+	--include "PrototypePattern2.java"       \
 	--exclude "*"                            \
 	../../exercises/java/ java
 	@rsync -r -t -u -v --delete              \

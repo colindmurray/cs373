@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-# ----------------
-# FactoryMethod.py
-# ----------------
+# -----------------------
+# FactoryMethodPattern.py
+# -----------------------
 
 # http://en.wikipedia.org/wiki/Factory_method_pattern
 
@@ -60,7 +60,7 @@ class EnchantedGame (Game) :
     def make_door (self, r, s) :
         return EnchantedDoor(r, s)
 
-print("FactoryMethod.py")
+print("FactoryMethodPattern.py")
 
 g = Game()
 m = g.create_maze()

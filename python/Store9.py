@@ -4,6 +4,9 @@
 # Store9.py
 # ---------
 
+from operator  import add
+from functools import reduce
+
 class Price :
     def get_points (self, days_rented) : # const
         return 1
@@ -116,10 +119,9 @@ class Customer :
         get_output()
     """
     def statement (self) : # O(n)
-        amount  = sum(map(Rental.get_amount, self.rentals))
-        points  = sum(map(Rental.get_points, self.rentals))
-        result  = "Rental Record for " + self.get_name() + "\n";
-        result += "".join(map(Rental.get_output, self.rentals))
+        amount  = reduce(add, map(Rental.get_amount, self.rentals), 0)
+        points  = reduce(add, map(Rental.get_points, self.rentals), 0)
+        result  = reduce(add, map(Rental.get_output, self.rentals), "Rental Record for " + self.get_name() + "\n")
         result += "Amount owed is " + str(amount) + "\n"
         result += "You earned "     + str(points) + " frequent renter points";
         return result

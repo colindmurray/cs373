@@ -39,7 +39,7 @@ final class Maze {
         return _doors.get(i);}}
 
 class Game {
-    public Maze createMaze () {
+    public final Maze createMaze () {
         Maze m = new Maze();
         m.addRoom(makeRoom());
         m.addRoom(makeRoom());

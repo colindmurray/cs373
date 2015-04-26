@@ -159,30 +159,6 @@ class Customer {
     /**
      * _rentals.elements().nextElement()
      *     getAmount()
-     */
-    private double getTotalCharge () { // const, O(n)
-        double              result  = 0;
-        Enumeration<Rental> rentals = _rentals.elements();
-        while (rentals.hasMoreElements()) {
-            Rental each  = rentals.nextElement();
-            result      += each.getAmount();}
-        return result;}
-
-    /**
-     * _rentals.elements().nextElement()
-     *     getPoints()
-     */
-    private int getTotalFrequentRenterPoints () { // const, O(n)
-        int                 result  = 0;
-        Enumeration<Rental> rentals = _rentals.elements();
-        while (rentals.hasMoreElements()) {
-            Rental each  = rentals.nextElement();
-            result      += each.getPoints();}
-        return result;}
-
-    /**
-     * _rentals.elements().nextElement()
-     *     getAmount()
      *     getMovie()
      *         getTitle()
      */
