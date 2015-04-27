@@ -22,10 +22,7 @@ class Door implements Cloneable {
 
     public Door clone () {
         try {
-            Door x = (Door) super.clone();
-            x._r = _r;
-            x._s = _s;
-            return x;}
+            return (Door) super.clone();}
         catch (CloneNotSupportedException e) {
             return null;}}}
 
