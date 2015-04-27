@@ -1,0 +1,23 @@
+--
+CS373: Quiz #37 (7 pts)
+--
+
+--------------------------------------------------------------------------
+ 1. What company does Sheryl Sandberg work for?
+    What is her position?
+    [A Woman's Place]
+    (2 pts)
+--
+
+--------------------------------------------------------------------------
+ 2. What documentary did the author cite?
+    [Terrible Female Engineers]
+    (2 pts)
+--
+
+--------------------------------------------------------------------------
+ 3. In the context of Room, Door, Maze, and Game, describe the
+    difference between the FactoryMethod and AbstractFactory design
+    patterns.
+    (2 pts)
+--
