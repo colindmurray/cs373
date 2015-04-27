@@ -9,11 +9,16 @@ CS373: Quiz #37 (7 pts)
     (2 pts)
 --
 
+Facebook
+COO
+
 --------------------------------------------------------------------------
  2. What documentary did the author cite?
     [Terrible Female Engineers]
     (2 pts)
 --
+
+she++
 
 --------------------------------------------------------------------------
  3. In the context of Room, Door, Maze, and Game, describe the
@@ -21,3 +26,6 @@ CS373: Quiz #37 (7 pts)
     patterns.
     (2 pts)
 --
+
+FactoryMethod subclasses Game
+AbstractFactory creates a new class hierarchy, MazeFactory
