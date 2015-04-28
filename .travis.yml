@@ -16,7 +16,6 @@ install:
     - npm install lodash
     - pip install --upgrade pip
     - pip install coverage
-    - xmllint -version
 
 script:
     - cd java
@@ -26,5 +25,8 @@ script:
     - make test
     - cd -
     - cd python
+    - make test
+    - cd -
+    - cd xml
     - make test
     - cd -
